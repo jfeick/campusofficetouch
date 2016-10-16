@@ -1,0 +1,326 @@
+* {
+	margin: 0;
+    padding: 0;
+}
+
+body {
+	width: 1920px;
+	background-color: #e8e8e8;
+	background-image: url("../img/grid2.png");
+	background-repeat: repeat-y repeat-x;
+	font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Geneva, sans-serif
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 16px;
+	color: #4A4A4A;
+	line-height: 20px;
+	margin-top: 10px;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 14px;
+	color: #4A4A4A;
+	line-height: 20px;
+	margin-top: 10px;
+}
+
+p {
+	font-size: 14px;
+	color: #4A4A4A;
+	line-height: 20px;
+}
+
+
+/* General Styles */
+
+.container-fluid{
+	padding: 60px;
+	position: relative;
+}
+
+.logo {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.language {
+	position: absolute;
+	left: 350px;
+	z-index: 2;
+}
+
+.language li {
+	display: inline-block;
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+.language li:first-child {
+	border-right: 1px solid #4A4A4A;
+}
+
+.language li a {
+	color: #4A4A4A;
+	padding: 0 20px 0 20px;
+}
+
+.language li a span {
+	font-weight: bold;
+}
+
+
+
+.card, .card-social {
+	width: 100%;
+	background-color: #fff;
+	position: relative;
+	margin-bottom: 20px;
+	display: block;
+}
+
+
+.card {
+	height: 468px;
+}
+
+.card-social {
+	height: 143px;
+}
+
+.card-bottom {
+	margin-bottom: 0 !important;
+}
+
+.tag {
+	height: 30px;
+	position: absolute;
+	z-index: 2;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 5px 8px 0px 8px;
+}
+
+.tag span {
+	font-weight: bold;
+}
+
+.img-card {
+	float: left;
+	left: 0;
+	top: 0;
+	width: 436px;
+	height: 100%;
+	background-color: #9B9B9B;
+	position: relative;
+	margin-right: 20px;
+}
+
+.text-container {
+	padding: 30px 20px 20px 20px;
+}
+
+
+.card a {
+	float: right;
+	text-decoration: underline;
+}
+
+.date-text {
+	font-family: Verdana;
+	font-size: 14px;
+	color: rgba(0,0,0,0.54);
+	line-height: 22px;
+}
+
+.seeall {
+	position: absolute;
+	bottom: 25px;
+	right: 20px;
+
+}
+
+/* Journal */
+
+.journal{
+	background-color: #009AB2;
+	left: 0;
+	bottom: 0;
+}
+
+/* Calendar */
+
+.calendar{
+	background-color: #006C93;
+	left: 0;
+	top: 0;
+}
+
+.calendar-row {
+	list-style-type: none;
+}
+
+.calendar-row .calendar-event {
+	float: left;
+	margin-bottom: 20px;
+}
+
+.calendar-row .calendar-event:nth-child(2){
+	border-top: 1px solid #DEDEDE;
+	float: left;
+}
+
+.calendar-title {
+	float: left;
+	width: 100%
+}
+
+.calendar-title h1 {
+	padding-top: 5px;
+}
+
+.date-calendar {
+	width: 45px;
+	float: left;
+	font-weight: bold;
+	text-align: center;
+	margin: 12px 10px 5px 0px;
+}
+
+.weekday, .month {
+	color: #006C93;
+	font-size: 12px;
+	margin: 0px;
+}
+
+.day {
+	font-size: 20px;
+	color: #006C93;
+	margin: 0px;
+}
+
+.calendar-list {
+	margin: 5px 0 5px 20px;
+	float: left;
+}
+
+/* Map */
+
+.container-map {
+	width: 100%;
+}
+
+/* Piazza */
+
+.piazza {
+	background-color: #98BF0E;
+	left: 0;
+	top: 0;
+}
+
+.piazza-row {
+	display: block;
+	list-style-type: none;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.piazza-row li {
+	height: 140px;
+	margin-bottom: 20px;
+}
+
+.piazza-row li:nth-child(2) {
+	padding-top: 20px;
+	border-top: 1px solid #DEDEDE;
+}
+
+.piazzaimg {
+	width: 140px;
+	height: 140px;
+	background-color: #98BF0E;
+	float: left;
+	margin-right: 20px;
+	font-size: 34px;
+	text-align: center;
+	color: #fff;
+	padding-top: 50px;
+}
+
+
+/* Showcase */
+
+.showcase {
+	background-color: #B91547;
+	left: 0;
+	bottom: 0;
+}
+
+/* Social */
+
+.socialtag {
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	z-index: 2;
+	color: #fff;
+	padding: 5px 8px 0px 8px;
+	text-align: center;
+}
+
+
+.facebook {
+	background-color: #1B5190;
+	top: 0;
+	left: 0;
+}
+
+.socialimg {
+	float: left;
+	left: 0;
+	top: 0;
+	width: 143px;
+	height: 100%;
+	background-color: #9B9B9B;
+	margin-right: 20px;
+}
+
+.text-container-social {
+	padding: 15px 20px 20px 20px;
+}
+
+.twitter {
+	background-color: #4A90E2;
+}
+
+.instagram {
+	background-color: #B91547;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
