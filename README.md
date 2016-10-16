@@ -1,2 +1,2 @@
 # campusofficetouch
-Campus Office Weimar Touchscreen
+Campus Office Weimar Touchscreen.
