@@ -1,14 +1,15 @@
 * {
 	margin: 0;
     padding: 0;
+
 }
 
 body {
-	width: 1920px;
+	width: 100%;
 	background-color: #e8e8e8;
 	background-image: url("../img/grid2.png");
 	background-repeat: repeat-y repeat-x;
-	font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Geneva, sans-serif
+	font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Geneva, sans-serif;
 }
 
 h1 {
@@ -26,6 +27,15 @@ h2 {
 	line-height: 20px;
 	margin-top: 10px;
 }
+
+h3 {
+	font-family: Verdana;
+	font-size: 14px;
+	color: #9B9B9B;
+	line-height: 22px;
+	margin: 0px 0 10px 0 ;
+}
+
 
 p {
 	font-size: 14px;
@@ -129,13 +139,6 @@ p {
 	text-decoration: underline;
 }
 
-.date-text {
-	font-family: Verdana;
-	font-size: 14px;
-	color: rgba(0,0,0,0.54);
-	line-height: 22px;
-}
-
 .seeall {
 	position: absolute;
 	bottom: 25px;
@@ -209,8 +212,32 @@ p {
 
 /* Map */
 
+.map {
+	top: 0;
+	left: 0;
+	background-color: #f39100; 
+	font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Geneva, sans-serif;
+	font-size: 14px; 
+}
+
 .container-map {
+	position: relative;
 	width: 100%;
+}
+
+.expand-btn {
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	
+	color: #fff;
+	font-size: 22px;
+	text-align: center;
+	display: inline-block;
+	padding-top: 12px;
 }
 
 /* Piazza */
@@ -300,15 +327,127 @@ p {
 	background-color: #B91547;
 }
 
+/* INNER SECTIONS */
+
+.container-inside{
+	padding-bottom: 0px !important;
+}
+
+.card-inside {
+	width: 100%;
+	background-color: #fff;
+	position: relative;
+	display: block;
+	height: 928px;
+}
 
 
+/* Bottom Menu */
+
+.row-bottom {
+	margin-top: 15px;
+}
+
+.bottom-container {
+	width: 100%;
+	height: 77px;
+	background-color: #fff;
+}
+
+.bottom-menu {
+	padding: 0 20px;
+	margin-bottom: 0;
+}
+
+.bottom-menu li {
+	display: inline-block;
+	height: 77px;
+	margin-right: 15px;
+}
+
+.bottom-menu li:last-child {
+	margin-right: 0;
+}
+
+.bottom-menu li a {
+	display: inline-block;
+}
+
+.bottom-menu li .journal-menu{
+	border-bottom: 8px solid #F39100;
+}
+
+.bottom-menu li a p {
+	padding: 15px 30px 0 30px;
+	font-size: 18px;
+	color: #6D6E70;
+	line-height: 22px;
+	text-transform: uppercase;
+}
+
+.bottom-menu li a span {
+	font-weight: bold;
+}
 
 
+/* Right Menu */
 
+.right-menu {
+	width: 480px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #D8D8D8;
+	height: 100%;
+	overflow-y: scroll;
+}
 
+.right-menu ul li {
+	display: block;
+	height: 200px;
+	padding: 30px 30px 0 30px;
+	position: relative;
+}
 
+.right-menu ul .content-selected  {
+	background-color: #C7C7C7;
+	outline: 1px solid #C7C7C7;
+	border-bottom: none;
+}
 
+.arrow-right {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	width: 0; 
+  	height: 0; 
+ 	border-top: 15px solid transparent;
+  	border-bottom: 15px solid transparent;
+  	border-left: 15px solid #fff;
+  	display: none;
+}
 
+.right-menu ul .content-selected  .arrow-right {
+	display: block;
+}
+
+.right-menu ul li a {
+	height: 100%;
+	display: block;
+	border-bottom: 1px solid #C7C7C7;
+}
+
+.right-menu ul li:last-child a {
+	border: none;
+}
+
+.img-menu {
+	float: left;
+	width: 130px;
+	height: 130px;
+	background-color: #fff;
+	margin-right: 20px;
+}
 
 
 
