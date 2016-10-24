@@ -55,6 +55,16 @@ p {
 	position: absolute;
 	left: 0;
 	top: 0;
+	width: 343px;
+	height: 40px;
+}
+
+.logo-home {
+	background-color: #b71a49
+}
+
+.logo-journal {
+	background-color: #009AB2;
 }
 
 .language {
@@ -81,7 +91,6 @@ p {
 .language li a span {
 	font-weight: bold;
 }
-
 
 
 .card, .card-social {
@@ -143,7 +152,6 @@ p {
 	position: absolute;
 	bottom: 25px;
 	right: 20px;
-
 }
 
 /* Journal */
@@ -281,7 +289,7 @@ p {
 /* Showcase */
 
 .showcase {
-	background-color: #B91547;
+	background-color: #e3000f;
 	left: 0;
 	bottom: 0;
 }
@@ -341,7 +349,6 @@ p {
 	height: 928px;
 }
 
-
 /* Bottom Menu */
 
 .row-bottom {
@@ -374,7 +381,7 @@ p {
 }
 
 .bottom-menu li .journal-menu{
-	border-bottom: 8px solid #F39100;
+	border-bottom: 8px solid #009AB2;
 }
 
 .bottom-menu li a p {
@@ -388,7 +395,6 @@ p {
 .bottom-menu li a span {
 	font-weight: bold;
 }
-
 
 /* Right Menu */
 
@@ -447,6 +453,51 @@ p {
 	height: 130px;
 	background-color: #fff;
 	margin-right: 20px;
+}
+
+
+/* Section Contents */
+
+.section-contents {
+	float: left;
+	position: relative;
+	width: 1010px;
+	padding: 80px 150px 0 150px;
+	overflow-y: scroll;
+	height: 925px;
+	box-sizing: border-box;
+}
+
+.section-contents h1 {
+	font-weight: bold;
+	font-size: 24px;
+	letter-spacing: 0px;
+	line-height: 30px;
+}
+
+.section-contents h2 {
+	font-size: 16px;
+	color: #4A4A4A;
+	font-weight: bold;
+}
+
+.journal-title {
+	color: #009AB2;
+}
+
+.section-img {
+	margin: 10px 0 20px 0;
+	width: 100%;
+	height: 530px;
+	float: left;
+}
+
+.section-img img {
+	height: 530px;
+	width: auto;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
