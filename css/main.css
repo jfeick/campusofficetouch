@@ -43,6 +43,10 @@ p {
 	line-height: 20px;
 }
 
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 
 /* General Styles */
 
@@ -65,6 +69,10 @@ p {
 
 .logo-journal {
 	background-color: #009AB2;
+}
+
+.logo-showcase {
+	background-color: #e3000f;
 }
 
 .language {
@@ -91,6 +99,9 @@ p {
 .language li a span {
 	font-weight: bold;
 }
+
+
+/******** HOME SCREEN *********/
 
 
 .card, .card-social {
@@ -335,7 +346,7 @@ p {
 	background-color: #B91547;
 }
 
-/* INNER SECTIONS */
+/********* INNER SECTIONS *********/
 
 .container-inside{
 	padding-bottom: 0px !important;
@@ -380,8 +391,12 @@ p {
 	display: inline-block;
 }
 
-.bottom-menu li .journal-menu{
+.bottom-menu li .journal-menu {
 	border-bottom: 8px solid #009AB2;
+}
+
+.bottom-menu li .showcase-menu {
+	border-bottom: 8px solid #e3000f;
 }
 
 .bottom-menu li a p {
@@ -481,24 +496,72 @@ p {
 	font-weight: bold;
 }
 
-.journal-title {
-	color: #009AB2;
-}
-
 .section-img {
-	margin: 10px 0 20px 0;
+	margin: 10px 0 30px 0;
 	width: 100%;
-	height: 530px;
+	height: 415px;
 	float: left;
+	position: relative;
+	background-color: #9B9B9B;
 }
 
 .section-img img {
-	height: 530px;
+	height: 100%;
 	width: auto;
 	display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
+.section-img .footnote {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	padding: 8px 20px;
+	opacity: 0.8;
+}
+
+
+/* Journal */
+
+.journal-title {
+	color: #009AB2;
+}
+
+/* Showcase */
+
+
+.showcase-title {
+	color: #e3000f;
+}
+
+.showcase-info {
+	float: left;
+	width: 220px;
+	padding-right: 10px;
+}
+
+.break {
+	-ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.showcase-info hr {
+	width: 200px;
+}
+
+.showcase-description {
+	float: left;
+	padding-left: 20px;
+	width: 480px;
+	border-left: 1px solid #9B9B9B;
+}
+
+
+
+
 
 
 
