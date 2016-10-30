@@ -79,6 +79,10 @@ p {
 	background-color: #98BF0E
 }
 
+.logo-calendar {
+	background-color: #006C93;
+}
+
 .language {
 	position: absolute;
 	left: 350px;
@@ -407,6 +411,10 @@ p {
 	border-bottom: 8px solid #98BF0E;
 }
 
+.bottom-menu li .calendar-menu {
+	border-bottom: 8px solid #006C93;
+}
+
 .bottom-menu li a p {
 	padding: 15px 30px 0 30px;
 	font-size: 18px;
@@ -535,6 +543,7 @@ p {
 .content-description {
 	float: left;
 	padding-left: 20px;
+	padding-bottom: 30px;
 	width: 480px;
 	border-left: 1px solid #9B9B9B;
 	margin-top: 10px;
@@ -639,6 +648,49 @@ p {
 
 .piazza-title {
 	color: #98BF0E;
+}
+
+/* Calendar */
+
+.content-date {
+	float: left;
+	width: 130px;
+	height: 130px;
+	background-color: #006C93;
+	margin-right: 20px;
+	padding:10px;
+	text-align: center;
+	font-weight: bold !important;
+}
+
+.content-date p {
+	font-size: 17px;
+	margin: 0;
+	color: #fff;
+}
+
+.content-date span {
+	font-size: 48px;
+	width: 100%;
+	color: #fff;
+}
+
+.right-menu .content-date {
+	background-color: #fff;
+}
+
+.right-menu .content-date p, .right-menu .content-date span
+ {
+	color: #006C93;
+}
+
+
+.calendar-title-inside{
+	color: #006C93;
+	float: left;
+	width: 75%;
+	height: 130px;
+	margin: 0;
 }
 
 
