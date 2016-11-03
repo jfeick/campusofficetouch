@@ -14,8 +14,9 @@
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/font-awesome.css" rel="stylesheet" />
     <script src="js/bootstrap.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
-	<link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
+
+  <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
 </head>
 
   <body>
@@ -31,13 +32,13 @@
   					<div class="tag journal">
   						<span>Bauhaus.Journal </span>Online
   					</div>
-  					<div class="img-card"></div>
+  					<div class="img-card"><img src="img/sample-img/img-journalindex.png"></div>
   					<div class="text-container">
-  						<h3>13. September 2016</h3>
+  						<h3>25. Oktober. 2016</h3>
 
-  						<h1>Alumni stellen beim Europäischen Monat der Fotografie in Berlin aus</h1>
+  						<h1>Auftakt der Ringvorlesung »Identität und Erbe« am 1. November 2016</h1>
 
-  						<p>Am Freitag, 7. Oktober 2016, 19 Uhr, eröffnet in der Galerie Eigenheim Berlin die Alumni-Gruppenausstellung »Diskrete Mechanismen«. In der Ausstellung, die Teil des Festivals »Europäischer Monat der Fotografie« ist, zeigen sieben Absolventinnen und Absolventen der Bauhaus-Universität Weimar aktuelle Arbeiten, in denen sie Fragestellungen zu technischen, biographischen...</p>
+  						<p>Mit einer Ringvorlesungsreihe möchte sich das DFG-Graduiertenkolleg 2227 »Identität und Erbe«, das am 1. Oktober 2016 in Partnerschaft zwischen Bauhaus-Universität Weimar und TU Berlin gestartet ist, der Öffentlichkeit vorstellen. Die Veranstaltungen stehen allen Interessierten offen. Der Eintritt ist frei...</p>
   						<a href="journal.html" class="seeall">See All...</a>
   					</div>
   				</div>
@@ -52,31 +53,31 @@
   							<li class="calendar-event">
   								<div class="calendar-title">
   									<div class="date-calendar">
-  										<p class="weekday">Mon</p>
-  										<p class="day">10</p>
-  										<p class="month">Oct</p>
+  										<p class="weekday">Thu</p>
+  										<p class="day">3</p>
+  										<p class="month">Nov</p>
   									</div>
-  									<h1>CampusThüringenTour in den Herbstferien</h1>
+  									<h1>Ph.D. Welcome Day and Intercultural Cross Dinner</h1>
   								</div>
-  								<p>Die CampusThüringenTour ist eine in Deutschland einmalige Reise zur Studienorientierung und gibt Einblicke in vorwiegend technische Studienrichtungen.</p>
+  								<p>Info- und Netzwerkveranstaltung für Promovierende / Information and networking event for doctoral candidates</p>
   								<ul class="calendar-list">
-  									<li>Datum: Monday, 10. October 2016</li>
-  									<li>Art: Studieren an der Bauhaus-Universität Weimar</li>
+  									<li>Datum: Thursday, 03.11.2016, 10.00 Uhr</li>
+  									<li>Ort: Bauhaus Research School, Berkaer Str. </li>
   								</ul>
   							</li>
   							<li class="calendar-event">
                   				<div class="calendar-title">
                     				<div class="date-calendar">
-                        				<p class="weekday">Mon</p>
-                        				<p class="day">10</p>
-                        				<p class="month">Oct</p>
+                        				<p class="weekday">Thu</p>
+                        				<p class="day">03</p>
+                        				<p class="month">Nov</p>
                     				</div>
-                    				<h1>Projektpräsentationen</h1>
+                    				<h1>Ringvorlesung „Medienanthropologie“ im Wintersemester 2016/2017</h1>
                   				</div>
                   				<ul class="calendar-list">
-                    				<li>Datum: Montag, 10. Oktober 2016, 09.00 Uhr</li>
-                    				<li>Ende: Montag, 10. Oktober 2016, 16.30 Uhr</li>
-                    				<li>Ort: Audimax der Bauhaus-Universität-Weimar, Universitätsbibltiohek, Steubenstraße 6, 99423 Weimar</li>
+                    				<li>Datum: Thursday, 03.11.2016, 19.00 Uhr</li>
+                    				<li>Ende: Thursday, 03.11.2016, 21.00 Uhr</li>
+                    				<li>Ort: IKKM Salon, Cranachstraße 47, Weimar</li>
                   				</ul>
                 			</li>
   						</ul>
@@ -84,21 +85,46 @@
   					<a href="calendar.html" class="seeall">See All...</a>
   				</div>
   			</div>
+
   			<div class="col-md-4">
-  				<div class="container-map" id='map' style='width:100%; height: 468px;'>
-          <div class="tag map">
+
+          <div class="ctn-map">
+            <div class="tag map">
               <span> FIND YOUR</span> WAY
-            </div>  
+            </div> 
+            <div id="mapid" class="index-map"> </div>
+            <a href="map.html" class="expand-btn">
+              <img src="img/icn-expand.svg">
+            </a>
           </div>
-				<script>
-					mapboxgl.accessToken = 'pk.eyJ1IjoibGFndWRlbG9nIiwiYSI6ImNpcTZieHByNjAwMWFpNm0yMGxydHlmODkifQ.vTG8_sHGz_sk4xSAMwPG-Q';
-					var map = new mapboxgl.Map({
-    				container: 'map',
-    				style: 'mapbox://styles/mapbox/streets-v9',
-            zoom: 16,
-            center: [11.329029,50.974596]});
-				</script>
-  			</div>
+        </div>
+
+
+<script >
+
+  var mymap = L.map('mapid').setView([50.974897,11.328834], 16);
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+    maxZoom: 20,
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+      '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    id: 'mapbox.streets'
+  }).addTo(mymap);
+
+  L.marker([50.974897,11.328834]).addTo(mymap)
+
+  function onMapClick(e) {
+    popup
+      .setLatLng(e.latlng)
+      .setContent("You clicked the map at " + e.latlng.toString())
+      .openOn(mymap);
+  }
+
+  mymap.on('click', onMapClick);
+
+</script>
+
 		</div>
 		 <div class="row">
   			<div class="col-md-4">
@@ -109,15 +135,15 @@
   					<div class="text-container">
   						<ul class="piazza-row">
   							<li>
-  								<div class="piazzaimg"></div>
-  								<h3>13. September 2016</h3>
-  								<h1>Elisa Trebstein: Tischplatte zu verkaufen - zum Zeichnen super!!
+  								<div class="piazzaimg"><img src="img/sample-img/img-piazzaindex1.png"></div>
+  								<h3>2. November 2016</h3>
+  								<h1>Clara Marie Landwehr: dtv-Atlas Baukunst abzugeben
 								</h1>
   							</li>
   							<li>
-  								<div class="piazzaimg"></div>
-  								<h3>13. September 2016</h3>
-  								<h1>Julian Dittrich: Heute Abend knallt der Sekt!
+  								<div class="piazzaimg"><img src="img/sample-img/img-piazzaindex2.png"></div>
+  								<h3>2. November 2016</h3>
+  								<h1>Lichthaus Kino: Morgen: Baldabiou live im Lichthaus
 								</h1>
   							</li>
   						</ul>
@@ -130,7 +156,7 @@
   					<div class="tag showcase">
   						<span>Experiment.Bauhaus </span>Showcase
   					</div>
-  					<div class="img-card"></div>
+  					<div class="img-card"><img src="img/sample-img/img-experimentindex.png"></div>
   					<div class="text-container">
   						<h1>Black Body Radiation</h1>
 
@@ -147,32 +173,30 @@
   					<div class="socialtag facebook">
   						<img src="img/icn-facebook.svg">
   					</div>
-  					<div class="socialimg"></div>
+  					<div class="socialimg"><img src="img/sample-img/img-facebookindex.png"></div>
   					<div class="text-container-social">
   						<h2>@bauhaus.botschafter</h2>
-  						<p>#wasgehtthueringen - Joon Kim an der #BauhausUni #Weimar!
-						Mehr Infos auch hier: http://...</p>
+  						<p>Vortrag: Zur Kasse bitte! Die Künstlersozialkasse Die Künstlersozialversicherung...</p>
   					</div>
   				</div>
   				<div class="card-social">
   					<div class="socialtag twitter">
   						<img src="img/icn-twitter.svg">
   					</div>
+            <div class="socialimg"><img src="img/sample-img/img-twitterindex.png"></div>
   					<div class="text-container-social">
   						<h2>@bauhaus_uni</h2>
-  						<p>#wasgehtthueringen - Joon Kim an der #BauhausUni #Weimar!
-						Mehr Infos auch hier: http://...</p>
+  						<p>Bauhaus-Uni Weimar ‏@bauhaus_uni 27 oct. Gerade ist das Internationale #BauhausKolloquium gestartet...</p>
   					</div>
   				</div>
   				<div class="card-social card-bottom">
   					<div class="socialtag instagram">
   						<img src="img/icn-instagram.svg">
   					</div>
-  					<div class="socialimg"></div>
+  					<div class="socialimg"><img src="img/sample-img/img-instagramindex.png"></div>
   					<div class="text-container-social">
   						<h2>@bauhaus_uni</h2>
-  						<p>#wasgehtthueringen - Joon Kim an der #BauhausUni #Weimar!
-						Mehr Infos auch hier: http://...</p>
+  						<p>bauhaus_uniIn weniger als 2 Stunden startet das Internationale Bauhaus-Kolloquium an der...</p>
   					</div>
   				</div>
   			</div>
