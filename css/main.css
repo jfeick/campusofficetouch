@@ -136,7 +136,7 @@ p {
 .tag {
 	height: 30px;
 	position: absolute;
-	z-index: 2;
+	z-index: 100;
 	color: #fff;
 	text-transform: uppercase;
 	padding: 5px 8px 0px 8px;
@@ -239,33 +239,42 @@ p {
 
 /* Map */
 
+.index-map { 
+	height:468px; 
+	width: 100%;
+	position: relative;
+	z-index: 0;
+}
+
+.ctn-map {
+	position: relative;
+}
+
 .map {
 	top: 0;
-	left: 0;
+	right: 0;
 	background-color: #f39100; 
 	font-family: Verdana, "Bitstream Vera Sans", "DejaVu Sans", Geneva, sans-serif;
 	font-size: 14px; 
 }
 
-.container-map {
-	position: relative;
-	width: 100%;
-}
-
 .expand-btn {
 	position: absolute;
-	z-index: 2;
-	left: 0;
-	top: 0;
+	left: 15px;
+	bottom: 15px;
+	border-radius: 5px;
 	width: 50px;
 	height: 50px;
-	
-	color: #fff;
-	font-size: 22px;
-	text-align: center;
-	display: inline-block;
-	padding-top: 12px;
+	display: block;
+	background-color: #fff;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	padding: 11px;
 }
+
+.expand-btn img {
+	width: 30px;
+}
+
 
 /* Piazza */
 
@@ -298,10 +307,6 @@ p {
 	background-color: #98BF0E;
 	float: left;
 	margin-right: 20px;
-	font-size: 34px;
-	text-align: center;
-	color: #fff;
-	padding-top: 50px;
 }
 
 
@@ -337,13 +342,17 @@ p {
 	left: 0;
 	top: 0;
 	width: 143px;
-	height: 100%;
+	height: 100
 	background-color: #9B9B9B;
 	margin-right: 20px;
 }
 
 .text-container-social {
 	padding: 15px 20px 20px 20px;
+}
+
+.text-container-social h2 {
+	margin-bottom: 5px !important;
 }
 
 .twitter {
@@ -692,6 +701,59 @@ p {
 	height: 130px;
 	margin: 0;
 }
+
+
+.map-inside {
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.map-categories {
+	position: absolute;
+	right: 0;
+	bottom: 15px;
+	width: 300px;
+	height: 300px;
+	background-color: #D8D8D8;
+	z-index: 2;
+	padding: 20px 0 0 20px;
+}
+
+.map-categories ul li {
+	margin: 0 0 10px 20px;
+	font-size: 22px;
+}
+
+.map-categories ul .general {
+	color: #f39100;
+}
+
+.map-categories ul .directorate {
+	color: #e3000f;
+}
+
+.map-categories ul .faculties {
+	color: #006b94;
+}
+
+.map-categories ul .administrative {
+	color: #009bb4;
+}
+
+.map-categories ul .facilities {
+	color: #94c11c;
+}
+
+.map-categories ul li span {
+	color: #000;
+	font-size: 16px;
+}
+
+
+
+
 
 
 
