@@ -61,6 +61,7 @@ p {
 	top: 0;
 	width: 343px;
 	height: 40px;
+	z-index: 3;
 }
 
 .logo-home {
@@ -81,6 +82,12 @@ p {
 
 .logo-calendar {
 	background-color: #006C93;
+}
+
+
+.logo-map {
+	background-color: #f39100;
+
 }
 
 .language {
@@ -173,6 +180,12 @@ p {
 	right: 20px;
 }
 
+.more {
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+}
+
 /* Journal */
 
 .journal{
@@ -194,13 +207,15 @@ p {
 }
 
 .calendar-row .calendar-event {
+	position: relative;
 	float: left;
-	margin-bottom: 20px;
+	padding-bottom: 30px;
 }
 
 .calendar-row .calendar-event:nth-child(2){
 	border-top: 1px solid #DEDEDE;
 	float: left;
+	margin-top: 10px;
 }
 
 .calendar-title {
@@ -288,16 +303,16 @@ p {
 	display: block;
 	list-style-type: none;
 	width: 100%;
-	margin-top: 20px;
 }
 
 .piazza-row li {
-	height: 140px;
+	padding-top: 30px;
+	height: 180px;
 	margin-bottom: 20px;
+	position: relative;
 }
 
 .piazza-row li:nth-child(2) {
-	padding-top: 20px;
 	border-top: 1px solid #DEDEDE;
 }
 
@@ -423,6 +438,11 @@ p {
 .bottom-menu li .calendar-menu {
 	border-bottom: 8px solid #006C93;
 }
+
+.bottom-menu li .map-menu {
+	border-bottom: 8px solid #f39100;
+}
+
 
 .bottom-menu li a p {
 	padding: 15px 30px 0 30px;
