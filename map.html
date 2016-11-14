@@ -29,20 +29,256 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="card-inside">
-          <div class="map-categories">
+          <button class="locate-btn">
+              <img src="img/icn-location.svg">
+            </button>
+          <div id="mapid" class="map-inside"></div>
+          <div class="right-menu menu-map">
             <ul>
-              <h2>Categories:</h2>
-              <li class="general"><span>Campus General</span></li>
-              <li class="directorate"><span>University Directorate</span></li>
-              <li class="faculties"><span>Faculties</span></li>
-              <li class="administrative"><span>Administrative Departments</span></li>
-              <li class="facilities"><span>Further University Facilities</span></li>
+
+            <!-- Campus General -->
+
+              <li>
+                <a href="#">
+                  <h3>Geschwister-Scholl-Straße 6a</h3>
+                  <h1>Bauhaus.Atelier | Info Shop Café</h1>
+                  <span class="bullet general"></span>
+                  <p>Campus General</p>
+                </a>
+              </li>
+              <li class="content-selected">
+                <a href="#">
+                  <h3>Geschwister-Scholl-Straße 15</h3>
+                  <h1>Campus Office</h1>
+                  <span class="bullet general"></span>
+                  <p>Campus General</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Geschwister-Scholl-Straße 8</h3>
+                  <h1>Hauptgebäude</h1>
+                  <span class="bullet general"></span>
+                  <p>Campus General</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Geschwister-Scholl-Straße 8</h3>
+                  <h1>Van-de-Velde-Bau</h1>
+                  <span class="bullet general"></span>
+                  <p>Campus General</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Am Horn 61</h3>
+                  <h1>Haus Am Horn</h1>
+                  <span class="bullet general"></span>
+                  <p>Campus General</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h1>Park an der Ilm</h1>
+                  <span class="bullet general"></span>
+                  <p>Campus General</p>
+                </a>
+              </li>
+
+              <!--Directorate -->
+
+              <li>
+                <a href="#">
+                  <h3>Geschwister-Scholl-Straße 8</h3>
+                  <h1>Büro des Rektors</h1>
+                  <span class="bullet directorate"></span>
+                  <p>Directorate</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Belvederer Allee 6</h3>
+                  <h1>Büro des Kanzlers</h1>
+                  <span class="bullet directorate"></span>
+                  <p>Directorate</p>
+                </a>
+              </li>
+
+              <!--Faculties -->
+
+              <li>
+                <a href="#">
+                  <h3>Geschwister-Scholl-Straße 8 </h3>
+                  <h1>Dekanat Fakultät Architektur und Urbanistik</h1>
+                  <span class="bullet faculties"></span>
+                  <p>Faculties</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Marienstraße 13E </h3>
+                  <h1>Dekanat Fakultät Bauingenieurwesen</h1>
+                  <span class="bullet faculties"></span>
+                  <p>Faculties</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Geschwister-Scholl-Straße 7 </h3>
+                  <h1>Dekanat Fakultät Gestaltung</h1>
+                  <span class="bullet faculties"></span>
+                  <p>Faculties</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Bauhausstraße 11</h3>
+                  <h1>Dekanat Fakultät Medien</h1>
+                  <span class="bullet faculties"></span>
+                  <p>Faculties</p>
+                </a>
+              </li>
+
+              <!--Administrative -->
+
+              <li>
+                <a href="#">
+                  <h3>Geschwister-Scholl-Straße 15</h3>
+                  <h1>Dezernat Studium und Lehre (DSL) Dezernat Internationale Beziehungen (DIB)</h1>
+                  <span class="bullet administrative"></span>
+                  <p>Administrative</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Belvederer Allee 6 </h3>
+                  <h1>Dezernat Personal (DP)</h1>
+                  <span class="bullet administrative"></span>
+                  <p>Administrative</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Coudraystraße 7</h3>
+                  <h1>Dezernat Finanzen (DF) Dezernat Forschung (DFo) </h1>
+                  <span class="bullet administrative"></span>
+                  <p>Administrative</p>
+                </a>
+              </li>
+
+              <!--Facilities -->
+
+              <li>
+                <a href="#">
+                  <h3> Marienstraße 9</h3>
+                  <h1>Alumni Büro</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Bauhausstraße 7b</h3>
+                  <h1>Archiv der Moderne (AdM)</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Berkaer Straße 9</h3>
+                  <h1>Bauhaus Research School (BRS)</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Geschwister-Scholl-Straße 15</h3>
+                  <h1>Careers Service</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Amalienstraße 13</h3>
+                  <h1>Gleichstellungsbüro</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Helmholtzstraße 15</h3>
+                  <h1>Gründerwerkstatt neudeli</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Steubenstraße 6a</h3>
+                  <h1>SCC (Rechenzentrum)</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Coudraystraße 7 </h3>
+                  <h1>Servicezentrum Liegenschaften (SL)</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Belvederer Allee 6</h3>
+                  <h1>Servicezentrum Sicherheitsmanagement</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Coudraystraße 13A</h3>
+                  <h1>Sprachenzentrum (SZ)</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Steubenstraße 6a</h3>
+                  <h1>Universitätsbibliothek, Audimax (UB)</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Amalienstraße 13</h3>
+                  <h1>Universitätskommunikation (UK)</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h3>Belvederer Allee 25a 29 Zentrum für Universitätsentwick</h3>
+                  <h1>Universitätssportzentrum »An der Falkenburg« (USZ)</h1>
+                  <span class="bullet facilities"></span>
+                  <p>Facilities</p>
+                </a>
+              </li>
             </ul>
           </div>
-          <div id="mapid" class="map-inside"></div>
+
  <script >
 
-  var mymap = L.map('mapid').setView([50.971999,11.329965], 16);
+  var mymap = L.map('mapid').setView([50.973999,11.329965], 17);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
     maxZoom: 20,
@@ -51,6 +287,8 @@
       'Imagery © <a href="http://mapbox.com">Mapbox</a>',
     id: 'mapbox.streets'
   }).addTo(mymap);
+
+  // Campus General //
 
   L.marker([50.974897,11.328834]).addTo(mymap)
     .bindPopup("<b>Campus Office</b><br />Geschwister-Scholl-Straße 15 ").openPopup();
@@ -85,6 +323,10 @@
     fillOpacity: 0.5
   }).addTo(mymap).bindPopup("<b>Park an der Ilm</b> ");
 
+
+  // Directorate //
+
+
     L.circle([50.974597,11.329199], 3, {
     color: '#e3000f',
     fillColor: '#e3000f',
@@ -96,6 +338,10 @@
     fillColor: '#e3000f',
     fillOpacity: 0.5
   }).addTo(mymap).bindPopup("<b>Büro des Kanzlers</b> <br /> Belvederer Allee 6");
+
+
+    // Faculties //
+
 
     L.circle([50.974510,11.329001], 3, {
     color: '#006b94',
@@ -121,6 +367,8 @@
     fillOpacity: 0.5
   }).addTo(mymap).bindPopup("<b>Dekanat Fakultät Medien</b> <br />Bauhausstraße 11");
 
+    // Administrative //
+
     L.circle([50.974897,11.328716], 3, {
     color: '#009bb4',
     fillColor: '#009bb4',
@@ -138,6 +386,8 @@
     fillColor: '#009bb4',
     fillOpacity: 0.5
   }).addTo(mymap).bindPopup("<b>Dezernat Finanzen (DF) Dezernat Forschung (DFo)</b> <br />Coudraystraße 7");
+
+    // Facilities //
 
     L.circle([50.97562,11.32917], 3, {
     color: '#94c11c',

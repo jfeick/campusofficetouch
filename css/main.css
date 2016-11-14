@@ -31,7 +31,7 @@ h2 {
 h3 {
 	font-family: Verdana;
 	font-size: 14px;
-	color: #9B9B9B;
+	color: #767676;
 	line-height: 22px;
 	margin: 0px 0 10px 0 ;
 }
@@ -290,6 +290,20 @@ p {
 	width: 30px;
 }
 
+.locate-btn {
+	position: absolute;
+	left: 15px;
+	bottom: 80px;
+	border-radius: 5px;
+	border: none;
+	width: 50px;
+	height: 50px;
+	display: block;
+	background-color: #fff;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	padding: 11px;
+}
+
 
 /* Piazza */
 
@@ -343,13 +357,14 @@ p {
 	color: #fff;
 	padding: 5px 8px 0px 8px;
 	text-align: center;
+	top: 0;
+	left: 0;
 }
 
 
-.facebook {
+.facebook, .fb {
 	background-color: #1B5190;
-	top: 0;
-	left: 0;
+
 }
 
 .socialimg {
@@ -357,20 +372,21 @@ p {
 	left: 0;
 	top: 0;
 	width: 143px;
-	height: 100
+	height: 100%;
 	background-color: #9B9B9B;
 	margin-right: 20px;
 }
 
 .text-container-social {
 	padding: 15px 20px 20px 20px;
+	margin-left: 20px;
 }
 
 .text-container-social h2 {
 	margin-bottom: 5px !important;
 }
 
-.twitter {
+.twitter, .tw {
 	background-color: #4A90E2;
 }
 
@@ -378,6 +394,27 @@ p {
 	background-color: #B91547;
 }
 
+.noimg {
+	float: left;
+	width: 143px;
+	height: 100%;
+	margin-right: 20px;
+}
+
+.noimg img {
+	position: relative;
+	left: 45%;
+	top: 40%;
+}
+
+
+.fb img {
+	width: 15px;
+}
+
+.tw img {
+	width: 20px;
+}
 /********* INNER SECTIONS *********/
 
 .container-inside{
@@ -722,56 +759,62 @@ p {
 	margin: 0;
 }
 
+/* Map */
+
+.card-inside .locate-btn {
+	z-index: 3;
+	bottom: 20px;
+
+}
+
 
 .map-inside {
 	z-index: 0;
-	width: 100%;
 	height: 100%;
 	position: relative;
+	float: left;
+	width: 1144px;
 }
 
-.map-categories {
-	position: absolute;
-	right: 0;
-	bottom: 15px;
-	width: 300px;
-	height: 300px;
-	background-color: #D8D8D8;
-	z-index: 2;
-	padding: 20px 0 0 20px;
+.menu-map {
+	width: 350px !important;
 }
 
-.map-categories ul li {
-	margin: 0 0 10px 20px;
-	font-size: 22px;
-}
-
-.map-categories ul .general {
-	color: #f39100;
-}
-
-.map-categories ul .directorate {
-	color: #e3000f;
-}
-
-.map-categories ul .faculties {
-	color: #006b94;
-}
-
-.map-categories ul .administrative {
-	color: #009bb4;
-}
-
-.map-categories ul .facilities {
-	color: #94c11c;
-}
-
-.map-categories ul li span {
-	color: #000;
-	font-size: 16px;
+.menu-map ul li {
+	height: 180px !important;
+	padding-top: 25px !important;
 }
 
 
+.bullet {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	display: block;
+	float: left;
+	margin: 5px 5px 0 0;
+}
+
+
+.general {
+	background-color: #f39100;
+}
+
+.directorate {
+	background-color: #e3000f;
+}
+
+.faculties {
+	background-color: #006b94;
+}
+
+.administrative {
+	background-color: #009bb4;
+}
+
+.facilities {
+	background-color: #94c11c;
+}
 
 
 

@@ -96,6 +96,9 @@
               <span> FIND YOUR</span> WAY
             </div> 
             <div id="mapid" class="index-map"> </div>
+            <button class="locate-btn">
+              <img src="img/icn-location.svg">
+            </button>
             <a href="map.html" class="expand-btn">
               <img src="img/icn-expand.svg">
             </a>
@@ -116,15 +119,6 @@
   }).addTo(mymap);
 
   L.marker([50.974897,11.328834]).addTo(mymap)
-
-  function onMapClick(e) {
-    popup
-      .setLatLng(e.latlng)
-      .setContent("You clicked the map at " + e.latlng.toString())
-      .openOn(mymap);
-  }
-
-  mymap.on('click', onMapClick);
 
 </script>
 
@@ -175,10 +169,15 @@
   			</div>
   			<div class="col-md-3">
   				<div class="card-social">
+          <div class="noimg fb">
+            <img src="img/icn-facebook.png">
+          </div>
+          <!--
   					<div class="socialtag facebook">
   						<img src="img/icn-facebook.svg">
   					</div>
   					<div class="socialimg"><img src="img/sample-img/img-facebookindex.png"></div>
+            -->
   					<div class="text-container-social">
   						<h2>@bauhaus.botschafter</h2>
   						<p>Vortrag: Zur Kasse bitte! Die Künstlersozialkasse Die Künstlersozialversicherung...</p>
@@ -186,7 +185,7 @@
   				</div>
   				<div class="card-social">
   					<div class="socialtag twitter">
-  						<img src="img/icn-twitter.svg">
+  						<img src="img/icn-twitter.png">
   					</div>
             <div class="socialimg"><img src="img/sample-img/img-twitterindex.png"></div>
   					<div class="text-container-social">
@@ -196,7 +195,7 @@
   				</div>
   				<div class="card-social card-bottom">
   					<div class="socialtag instagram">
-  						<img src="img/icn-instagram.svg">
+  						<img src="img/icn-instagram.png">
   					</div>
   					<div class="socialimg"><img src="img/sample-img/img-instagramindex.png"></div>
   					<div class="text-container-social">
