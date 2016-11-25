@@ -157,7 +157,6 @@ p {
 	float: left;
 	left: 0;
 	top: 0;
-	width: 436px;
 	height: 100%;
 	background-color: #9B9B9B;
 	position: relative;
@@ -777,7 +776,7 @@ p {
 }
 
 .menu-map {
-	width: 350px !important;
+	width: 351px !important;
 }
 
 .menu-map ul li {
