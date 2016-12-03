@@ -19,11 +19,10 @@
 </head>
 
 <body>
-  <div class="logo logo-piazza"><img src="img/img-logo-home.svg" alt="Bauhaus Logo">
-  </div>
+  <a href="index.html" class="logo logo-piazza"><img src="img/img-logo-home.svg"></a>
   <ul class="language">
-    <li><a href="#"><span>ENG</span></a></li>
-    <li><a href="#">DEU</a></li>
+    <li><a class="lan-english"><span>ENG</span></a></li>
+    <li><a class="lan-german"><span>DEU</span></a></li>
   </ul>
   <div class="container-fluid container-inside">
     <div class="row">
@@ -35,15 +34,15 @@
             </div>
             <div class="content-info">
               <p>
-                Author
+                <b><span class="english">Author</span> <span class="german">Autor</span></b>
                 <br>
                 Eva Eichhorn<br>
                 <br>
-                Published
+                <b><span class="english">Published</span> <span class="german">Veröffentlicht am</span></b>
                 <br>
                 15. November 2016, 16.58 Uhr
                 <br><br>
-                Expires 
+                <b><span class="english">Expires </span><span class="german">Verfällt am</span></b>
                 <br>
                 29. November 2016, 16.58 Uhr
               </p>
@@ -68,7 +67,7 @@ Kontakt: evaeichhorn[at]gmx.de
             <ul>
               <li>
                 <a href="#">
-                  <div class="img-menu"><img src="img/sample-img/img-piazza1.jpg"></div>
+                  <div class="img-piazza"><img src="img/sample-img/img-piazza1.jpg"></div>
                   <h3>Leonie Fischer</h3>
                   <h1>Wer verkauft mir sein altes iphone?</h1>
                 </a>
@@ -76,7 +75,7 @@ Kontakt: evaeichhorn[at]gmx.de
               <li class="content-selected">
                 <a href="#">
                   <div class="arrow-right"></div>
-                  <div class="img-menu"><img src="img/sample-img/img-piazza2.jpg"></div>
+                  <div class="img-piazza"><img src="img/sample-img/img-piazza2.jpg"></div>
                   <h3>Eva Eichhorn</h3>
                   <h1>Couch zu verschenken</h1>
                 </a>
@@ -84,7 +83,7 @@ Kontakt: evaeichhorn[at]gmx.de
               <li>
                 <a href="#">
                   <div class="arrow-right"></div>
-                  <div class="img-menu"><img src="img/sample-img/img-piazza3.jpg"></div>
+                  <div class="img-piazza"></div>
                   <h3>Tillmann Ohm</h3>
                   <h1>Zimmer frei zum 01.12. direkt am Campus 215€ all incl.</h1>
                 </a>
@@ -92,7 +91,7 @@ Kontakt: evaeichhorn[at]gmx.de
               <li>
                 <a href="#">
                   <div class="arrow-right"></div>
-                  <div class="img-menu"><img src="img/sample-img/img-piazza4.jpg"></div>
+                  <div class="img-piazza"><img src="img/sample-img/img-piazza4.jpg"></div>
                   <h3>Marcel Sparmann</h3>
                   <h1>Kaffee-Kuchen-Action Art II / BREaKING POINTS</h1>
                 </a>
@@ -100,7 +99,7 @@ Kontakt: evaeichhorn[at]gmx.de
               <li>
                 <a href="#">
                   <div class="arrow-right"></div>
-                  <div class="img-menu"><img src="img/sample-img/img-piazza5.jpg"></div>
+                  <div class="img-piazza"><img src="img/sample-img/img-piazza5.jpg"></div>
                   <h3>Gründerwerkstatt neudeli</h3>
                   <h1>Kostenlose Arbeitsräume im neudeli - bis 27.11. bewerben!</h1>
                 </a>
@@ -108,7 +107,39 @@ Kontakt: evaeichhorn[at]gmx.de
               <li>
                 <a href="#">
                   <div class="arrow-right"></div>
-                  <div class="img-menu"><img src="img/sample-img/img-piazza6.jpg"></div>
+                  <div class="img-piazza"><img src="img/sample-img/img-piazza6.jpg"></div>
+                  <h3>Michaela Peisker</h3>
+                  <h1>Einblick: Spring Sanierung GmbH_25.11.</h1>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="arrow-right"></div>
+                  <div class="img-piazza"></div>
+                  <h3>Tillmann Ohm</h3>
+                  <h1>Zimmer frei zum 01.12. direkt am Campus 215€ all incl.</h1>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="arrow-right"></div>
+                  <div class="img-piazza"><img src="img/sample-img/img-piazza4.jpg"></div>
+                  <h3>Marcel Sparmann</h3>
+                  <h1>Kaffee-Kuchen-Action Art II / BREaKING POINTS</h1>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="arrow-right"></div>
+                  <div class="img-piazza"><img src="img/sample-img/img-piazza5.jpg"></div>
+                  <h3>Gründerwerkstatt neudeli</h3>
+                  <h1>Kostenlose Arbeitsräume im neudeli - bis 27.11. bewerben!</h1>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="arrow-right"></div>
+                  <div class="img-piazza"><img src="img/sample-img/img-piazza6.jpg"></div>
                   <h3>Michaela Peisker</h3>
                   <h1>Einblick: Spring Sanierung GmbH_25.11.</h1>
                 </a>
@@ -122,12 +153,12 @@ Kontakt: evaeichhorn[at]gmx.de
       <div class="col-md-10 col-md-offset-1">
         <div class="bottom-container">
           <ul class="bottom-menu">
-            <li><a href="index.html"><p><span>Main</span> <br>Screen</p></a></li>
-            <li><a href="journal.html"><p><span>Bauhaus.Journal</span> <br>Online</p></a></li>
-            <li><a href="showcase.html"><p><span>Experiment.Bauhaus</span> <br>Showcase</p></a></li>
-            <li><a href="calendar.html"><p><span>Calendar</span> <br>Upcoming Events</p></a></li>
-            <li><a href="piazza.html" class="piazza-menu"><p><span>Pinnwand</span> <br>Piazza</p></a></li>
-            <li><a href="map.html"><p><span>Find</span> <br>Your Way</p></a></li>
+            <li><a href="index.html"><p><span class=""><span class="bold">Main</span> <br>Screen</span></p></a></li>
+            <li><a href="journal.html"><p><span class="bold">Bauhaus.Journal</span> <br>Online</p></a></li>
+            <li><a href="showcase.html"><p><span class="bold">Experiment.Bauhaus</span> <br>Showcase</p></a></li>
+            <li><a href="calendar.html"><p><span class="english"><span class="bold">Calendar</span> <br>Upcoming Events</span> <span class="german"><span class="bold">Veranstaltungs </span><br>kalender</span></p></a></li>
+            <li><a href="piazza.html" class="piazza-menu"><p><span class="bold">Pinnwand</span> <br>Piazza</p></a></li>
+            <li><a href="map.html"><p><span class="german"><span class="bold">Lagepläne </span><br> Dein Weg</span><span class="english"><span class="bold">Find</span> <br>Your Way</span></p></a></li>
           </ul>
         </div>
       </div>
