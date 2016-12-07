@@ -111,7 +111,11 @@ p {
 	padding: 0 20px 0 20px;
 }
 
-.language li a span {
+.lan-english span {
+	
+}
+
+.lan-german span {
 	font-weight: bold;
 }
 
@@ -151,6 +155,14 @@ p {
 
 .tag span {
 	font-weight: bold;
+}
+
+.german {
+}
+
+.english {
+	display: none;
+
 }
 
 .img-card {
@@ -481,14 +493,14 @@ p {
 
 
 .bottom-menu li a p {
-	padding: 15px 30px 0 30px;
+	padding: 15px 25px 0 25px;
 	font-size: 18px;
 	color: #6D6E70;
 	line-height: 22px;
 	text-transform: uppercase;
 }
 
-.bottom-menu li a span {
+.bottom-menu li a .bold {
 	font-weight: bold;
 }
 
@@ -543,12 +555,20 @@ p {
 	border: none;
 }
 
-.img-menu {
+.img-menu, .img-piazza {
 	float: left;
 	width: 130px;
 	height: 130px;
-	background-color: #fff;
 	margin-right: 25px;
+}
+
+
+.img-menu img, .img-piazza img {
+	width: 100%;
+}
+
+.img-piazza {
+	background-color: #98BF0E;
 }
 
 
@@ -758,14 +778,20 @@ p {
 	margin: 0;
 }
 
-/* Map */
+.teaser-calendar {
+	float: left;
+	display: block;
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+/* Map Inside */
 
 .card-inside .locate-btn {
 	z-index: 3;
 	bottom: 20px;
 
 }
-
 
 .map-inside {
 	z-index: 0;
@@ -783,6 +809,8 @@ p {
 	height: 180px !important;
 	padding-top: 25px !important;
 }
+
+.menu-map
 
 
 .bullet {
@@ -814,6 +842,8 @@ p {
 .facilities {
 	background-color: #94c11c;
 }
+
+
 
 
 
