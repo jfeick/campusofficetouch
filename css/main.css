@@ -682,31 +682,31 @@ p {
 /* Carousel */
 
 
-.row-carousel {
+.row-carouselco {
 	margin: 5px 0 30px 0 !important;
 }
-.carousel {
+.carouselco {
 	position: relative;
 	height: 415px;
 	width: 100%;
 	float: left;
 }
 
-.carousel-inner {
+.carouselco-inner {
 	position: relative;
 	width: 100%;
 }
 
-.carousel .item {
+.carouselco .item {
 	height: 415px;
 	background-color: #777;
 }
 
-.carousel-control.left, .carousel-control.right {
+.carouselco-control.left, .carousel-control.right {
 	background-image: none;
 }
 
-.carousel-caption {
+.carouselco-caption {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -719,12 +719,12 @@ p {
 	text-shadow: none;
 }
 
-.carousel-control {
+.carouselco-control {
 	height: 415px;
 	top: 300px;
 }
 
-.carousel-control img {
+.carouselco-control img {
 	width: 60px;
 }
 

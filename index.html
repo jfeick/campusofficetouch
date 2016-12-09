@@ -2,7 +2,6 @@
 <html>
 
 <head>
-	
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
    	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +12,10 @@
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/font-awesome.css" rel="stylesheet" />
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <link href="css/MetroJs.lt.css" rel="stylesheet" /> 
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/MetroJs.lt.js"></script>
 
   <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
@@ -28,19 +30,35 @@
     <div class="container-fluid">
     	<div class="row">
   			<div class="col-md-5">
-  				<div class="card">
-  					<div class="tag journal">
-  						<span>Bauhaus.Journal </span>Online
-  					</div>
-  					<div class="img-card"><img src="img/sample-img/img-journalindex.png"></div>
-  					<div class="text-container">
-  						<h3>25. Oktober. 2016</h3>
+  				<div class="live-tile card" data-mode="carousel" data-direction="vertical" data-delay="2500">
+                    <div>
+                        <div class="tag journal">
+                            <span>Bauhaus.Journal </span>Online
+                        </div>
+                        <div class="img-card"><img src="img/sample-img/img-journalindex.png"></div>
+                        <div class="text-container">
+                            <h3>25. Oktober. 2016</h3>
 
-  						<h1>Auftakt der Ringvorlesung »Identität und Erbe« am 1. November 2016</h1>
+                            <h1>Auftakt der Ringvorlesung »Identität und Erbe« am 1. November 2016</h1>
 
-  						<p>Mit einer Ringvorlesungsreihe möchte sich das DFG-Graduiertenkolleg 2227 »Identität und Erbe«, das am 1. Oktober 2016 in Partnerschaft zwischen Bauhaus-Universität Weimar und TU Berlin gestartet ist, der Öffentlichkeit vorstellen. Die Veranstaltungen stehen allen Interessierten offen. Der Eintritt ist frei...</p>
-  						<a href="journal.html" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
-  					</div>
+                            <p>Mit einer Ringvorlesungsreihe möchte sich das DFG-Graduiertenkolleg 2227 »Identität und Erbe«, das am 1. Oktober 2016 in Partnerschaft zwischen Bauhaus-Universität Weimar und TU Berlin gestartet ist, der Öffentlichkeit vorstellen. Die Veranstaltungen stehen allen Interessierten offen. Der Eintritt ist frei...</p>
+                            <a href="journal.html" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="tag journal">
+                            <span>Bauhaus.Journal </span>Online
+                        </div>
+                        <div class="img-card"><img src="img/sample-img/img-journalindex.png"></div>
+                        <div class="text-container">
+                            <h3>25. Oktober. 2016</h3>
+
+                            <h1>Auftakt der Ringvorlesung »Identität und Erbe« am 1. November 2016</h1>
+
+                            <p>Mit einer Ringvorlesungsreihe möchte sich das DFG-Graduiertenkolleg 2227 »Identität und Erbe«, das am 1. Oktober 2016 in Partnerschaft zwischen Bauhaus-Universität Weimar und TU Berlin gestartet ist, der Öffentlichkeit vorstellen. Die Veranstaltungen stehen allen Interessierten offen. Der Eintritt ist frei...</p>
+                            <a href="journal.html" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
+                        </div>
+                    </div>
   				</div>
   			</div>
   			<div class="col-md-3">
@@ -211,7 +229,15 @@
   			</div>
 		</div>
 	</div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+
+    <!-- Activate live tiles -->
+    <script type="text/javascript">
+        // apply regular slide universally unless .exclude class is applied 
+        // NOTE: The default options for each liveTile are being pulled from the 'data-' attributes
+        var a = $(".live-tile");
+        a.liveTile();
+    </script>
+
   </body>
 </html>
