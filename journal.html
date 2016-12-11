@@ -14,8 +14,11 @@
     <link href="css/main.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
     <link href="css/font-awesome.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>  
+    <script src="js/jsrender.min.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
 	  <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
@@ -28,18 +31,10 @@
     <li><a class="lan-german"><span>DEU</span></a></li>
   </ul>
 
-    
-      
-      
-
   <div class="container-fluid container-inside">
-
     <div class="row">
-
       <div class="col-md-10 col-md-offset-1">
-
         <div class="card-inside">
-        
           <div class="section-contents mCustomScrollbar" data-mcs-theme="minimal-dark">
             <h1 class="journal-title">Ausstellung im Bauhaus-Museum eröffnet Triennale der Moderne 2016 in Weimar</h1>
             <div class="section-img">
@@ -64,7 +59,7 @@
           </div>
         
           <div class="right-menu mCustomScrollbar" data-mcs-theme="minimal-dark" >
-            <ul>
+            <ul id="journal-menu">
               <li>
                 <a href="#">
                   <div class="img-menu"><img src="img/sample-img/img-journal1.jpg"></div>
@@ -166,10 +161,41 @@
   </div>
     
   <!-- <script src="js/bootstrap.min.js"></script> -->
-  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>  
+
+
+  <script id="journal-menu-template" type="text/x-jsrender">
+    <li id="journal-menu-item-{{:#index+1}}">
+      <a href="#">
+        <div class="arrow-right"></div>
+        <div class="img-menu"><img src="./journal/thumbs/small/{{for images tmpl='#journal-menu-image-template'/}}"></div>
+        <h3>{{:date}}</h3>
+        <h1>{{:title}}</h1>
+      </a>
+    </li>
+  </script>
+  <script id="journal-menu-image-template" type="text/x-jsrender">{{>path}}</script>
+
   <script>
-    $(".section-content").mCustomScrollbar({
-        scrollInertia:200 // horizontal scrollbar
+    $(".right-menu").mCustomScrollbar({
+        scrollButtons:{enable:true,scrollType:"stepped"},
+        keyboard:{scrollType:"stepped"},
+        mouseWheel:{scrollAmount:200,normalizeDelta:true},
+        snapAmount:200,
+        snapOffset:0
+    });
+    $.templates("journal-menu-template", {
+      markup: "#journal-menu-template",
+      templates: {
+        fullImageTemplate: "journal-menu-image-template"
+      }
+    });
+    $.getJSON("./journal2.json", function(json) {
+      var template = $.templates("#journal-menu-template");
+      var htmlOutput = template.render(json);
+      $("#journal-menu").html(htmlOutput);
+      json.forEach(function(journal_item) {
+        console.log(journal_item);
+      }); 
     });
   </script>
 </body>
