@@ -35,7 +35,7 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="card-inside">
-          <div class="section-contents mCustomScrollbar" data-mcs-theme="minimal-dark">
+          <div id="journal-content" class="section-contents mCustomScrollbar" data-mcs-theme="minimal-dark">
             <h1 class="journal-title">Ausstellung im Bauhaus-Museum eröffnet Triennale der Moderne 2016 in Weimar</h1>
             <div class="section-img">
               <img src="img/sample-img/img-journal.png">
@@ -161,21 +161,50 @@
   </div>
     
   <!-- <script src="js/bootstrap.min.js"></script> -->
-
+  <script id="journal-content-template" type="text/x-jsrender">
+    <h1 class="journal-title">{{:title}}</h1>
+      <div class="section-img">
+        <img src="./journal/full/{{for images tmpl='#journal-image-template'/}}">
+      </div>
+      <h2>{{:teaser_text}}
+      </h2>
+      <p>
+        {{:article_body}}
+      </p>
+  </script>
 
   <script id="journal-menu-template" type="text/x-jsrender">
     <li id="journal-menu-item-{{:#index+1}}">
-      <a href="#">
+      <a href="#" onclick="journalMenuClickHandler({{:#index+1}});">
         <div class="arrow-right"></div>
-        <div class="img-menu"><img src="./journal/thumbs/small/{{for images tmpl='#journal-menu-image-template'/}}"></div>
+        <div class="img-menu"><img src="./journal/thumbs/small/{{for images tmpl='#journal-image-template'/}}"></div>
         <h3>{{:date}}</h3>
         <h1>{{:title}}</h1>
       </a>
     </li>
   </script>
-  <script id="journal-menu-image-template" type="text/x-jsrender">{{>path}}</script>
+  <script id="journal-image-template" type="text/x-jsrender">{{>path}}</script>
 
   <script>
+    function journalMenuClickHandler(id) {
+      // remove content-selected class from all list elements
+      $('#journal-menu li').removeClass('content-selected');
+      // set element as marked
+      $('#journal-menu-item-' + id).addClass('content-selected');
+      // fade out content
+      $('.section-contents').mCustomScrollbar("destroy").fadeOut(200, function() {
+        // replace content
+        var template = $.templates('#journal-content-template');
+        var htmlOutput = template.render(window.journal_data[id - 1]);
+        console.log(htmlOutput);
+        $('#journal-content').html(htmlOutput)
+        $('#journal-content').mCustomScrollbar().fadeIn(200);
+
+        // fadeIn content
+        //$('#journal-content').fadeIn(200);
+      });
+    }
+
     $(".right-menu").mCustomScrollbar({
         scrollButtons:{enable:true,scrollType:"stepped"},
         keyboard:{scrollType:"stepped"},
@@ -183,19 +212,14 @@
         snapAmount:200,
         snapOffset:0
     });
-    $.templates("journal-menu-template", {
-      markup: "#journal-menu-template",
-      templates: {
-        fullImageTemplate: "journal-menu-image-template"
-      }
-    });
     $.getJSON("./journal2.json", function(json) {
+      window.journal_data = json;
       var template = $.templates("#journal-menu-template");
       var htmlOutput = template.render(json);
       $("#journal-menu").html(htmlOutput);
-      json.forEach(function(journal_item) {
+      /*json.forEach(function(journal_item) {
         console.log(journal_item);
-      }); 
+      }); */
     });
   </script>
 </body>
