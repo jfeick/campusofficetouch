@@ -12,16 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
     <link href="css/font-awesome.css" rel="stylesheet" />
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>  
     <script src="js/jsrender.min.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
-	  <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
 </head>
 
 <body>
@@ -30,7 +28,6 @@
     <li><a class="lan-english"><span>ENG</span></a></li>
     <li><a class="lan-german"><span>DEU</span></a></li>
   </ul>
-
   <div class="container-fluid container-inside">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -91,7 +88,7 @@
       // remove content-selected class from all list elements
       $('#journal-menu li').removeClass('content-selected');
       // set element as marked
-      $('#journal-menu-item-' + id).addClass('content-selec ted');
+      $('#journal-menu-item-' + id).addClass('content-selected');
       // scroll to item position in menu
       $(".right-menu").mCustomScrollbar("scrollTo", "#journal-menu-item-" + id);
       // fade out content
@@ -132,7 +129,7 @@
         snapAmount:200,
         snapOffset:0
     });
-    $.getJSON("./journal2.json", function(json) {
+    $.getJSON("./journal.json", function(json) {
       window.journal_data = json;
       var template = $.templates("#journal-menu-template");
       var htmlOutput = template.render(json);

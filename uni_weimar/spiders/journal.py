@@ -3,6 +3,7 @@ from scrapy.pipelines.images import ImagesPipeline
 from scrapy.utils.misc import md5sum
 from io import BytesIO
 from PIL import Image, ImageOps
+import os
 
 import logging
 import json
@@ -12,7 +13,7 @@ import json
 import re
 import lxml
 import logging
-import os
+
 
 
 class JournalItem(scrapy.Item):
@@ -25,9 +26,9 @@ class JournalItem(scrapy.Item):
     images = scrapy.Field()
     teaser_text = scrapy.Field()
     article_body = scrapy.Field()
-    image_full = scrapy.Field()
-    image_big = scrapy.Field()
-    image_small = scrapy.Field()
+    #image_full = scrapy.Field()
+    #image_big = scrapy.Field()
+    #image_small = scrapy.Field()
 
 class JournalImagesPipeline(ImagesPipeline):
     def convert_image(self, image, size=None):
@@ -43,8 +44,10 @@ class JournalImagesPipeline(ImagesPipeline):
 
     def item_completed(self, results, item, info):
         # import ipdb; ipdb.set_trace()
-        if len(results) and 'path' in results[0][1]:
-            results[0][1]['path'] = os.path.basename(results[0][1]['path'])
+        #if len(results) and 'path' in results[0][1]:
+        #    results[0][1]['path'] = os.path.basename(results[0][1]['path'])
+        for result in results:
+            result[1]['path'] = os.path.basename(result[1]['path'])
         if isinstance(item, dict) or self.images_result_field in item.fields:
             item[self.images_result_field] = [x for ok, x in results if ok]
         return item
