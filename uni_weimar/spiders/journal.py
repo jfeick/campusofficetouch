@@ -72,6 +72,7 @@ class JournalSpider(scrapy.Spider):
         self.logger.info("Journal parsing...")
         #list_items = response.css('#content_main .listarea .item')
         list_items = response.css('.listview-content .item')
+        list_items += response.css('.listview-content .item-view-default')
         self.logger.info("Len of list_items: {}".format(len(list_items)))
         # get image
         for list_item in list_items:
