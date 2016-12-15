@@ -524,7 +524,7 @@ p {
 
 .right-menu ul .content-selected  {
 	background-color: #C7C7C7;
-	outline: 1px solid #C7C7C7;
+	/* outline: 1px solid #C7C7C7; */
 	border-bottom: none;
 }
 
@@ -547,7 +547,7 @@ p {
 .right-menu ul li a {
 	height: 100%;
 	display: block;
-	border-bottom: 1px solid #C7C7C7;
+	/* border-bottom: 1px solid #C7C7C7; */
 }
 
 .right-menu ul li:last-child a {
@@ -842,6 +842,53 @@ p {
 }
 
 
+
+.gallery {
+  background: transparent;
+}
+
+.flickity-viewport {
+  /* max-height: 600px; */
+  width:700px;
+}
+
+.carousel-cell {
+  width: 700px;
+  max-width: 100%;
+  max-height: 500px;
+  /* flex-box, center image in cell */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+
+.carousel-cell img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  /* dim unselected */
+  opacity: 0.7;
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s, transform 0.3s, -webkit-filter 0.3s, filter 0.3s;
+          transition: opacity 0.3s, transform 0.3s, filter 0.3s;
+}
+
+/* brighten selected image */
+.carousel-cell.is-selected img {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-filter: none;
+          filter: none;
+}
 
 
 
