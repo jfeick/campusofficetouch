@@ -623,6 +623,14 @@ p {
 	width: 200px;
 }
 
+.content-info span[class="label uppercase"]
+{
+	font-size: 13px;
+	color: #4A4A4A;
+	font-weight: bold;
+	padding: 0px;
+}
+
 .content-description {
 	float: left;
 	padding-left: 20px;
@@ -891,9 +899,7 @@ p {
 }
 
 
-
-
-
+a:focus { outline: none }
 
 
 

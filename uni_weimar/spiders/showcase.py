@@ -82,10 +82,7 @@ class ShowcaseSpider(scrapy.Spider):
             self.logger.info('URL extracted: %s', href.extract()[0])
             url = response.urljoin(href.extract()[0])
           
-            # DEBUG!!!
-            if self.count <= 3:
-                self.count += 1
-                yield scrapy.Request(url, callback=self.parse_showcase_item)
+            yield scrapy.Request(url, callback=self.parse_showcase_item)
 
     def parse_showcase_item(self, response):
 
@@ -126,6 +123,11 @@ class ShowcaseSpider(scrapy.Spider):
         #item['description'] = project_description
 
         #content_html = data['divclip']
+
+        # strip links from content html
+        p = re.compile(r"<\/?a(?:(?= )[^>]*)?>")
+        project_information = re.sub(p, "", project_information)
+        project_description = re.sub(p, "", project_description)
 
         item['information'] = project_information
         item['author'] = author
