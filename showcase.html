@@ -182,7 +182,7 @@
       </ul>
       </div>
       <div class="row row-carouselco">
-        <div id="showcase-carousel" class="main-carousel">
+        <div id="showcase-carousel" class="main-carousel" data-flickity='{ "wrapAround": true }'>
           {{for images tmpl='#showcase-item-template' /}}
         </div>  
       </div>
@@ -230,16 +230,18 @@
       }
       catch(err) {}
       try {
-        $('#showcase-carousel').flickity('destroy');
+        //$('#showcase-carousel').flickity('destroy');
       }
       catch(err) {}
-      $('.section-contents').fadeOut(300, function() {
+      $('.section-contents').fadeOut(500, function() {
         // replace content
         var template = $.templates('#showcase-content-template');
         var htmlOutput = template.render(window.showcase_data[id - 1]);
         $('#showcase-content').html(htmlOutput);
-        $('#showcase-content').mCustomScrollbar().fadeTo(300, 1.0, function() {
-          $('#showcase-carousel').flickity();
+        //$('#showcase-carousel').flickity({ "wrapAround": true });
+        $('#showcase-content').mCustomScrollbar().fadeTo(500, 1.0, function() {
+          //$('#showcase-carousel').flickity();
+          $('#showcase-carousel').flickity({ "wrapAround": true })
         })
       });
     }
