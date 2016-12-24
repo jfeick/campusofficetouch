@@ -808,12 +808,12 @@ p {
 }
 
 .menu-map {
-	width: 351px !important;
+	width: 480px !important;
 }
 
 .menu-map ul li {
-	height: 180px !important;
-	padding-top: 25px !important;
+	height: 140px !important;
+	padding-top: 20px !important;
 }
 
 .menu-map
@@ -904,7 +904,12 @@ p {
 
 a:focus { outline: none }
 
-
+.content-info > ul li strong
+{
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 2px;
+}
 
 
 

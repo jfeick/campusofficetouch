@@ -12,10 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>  
+    <script src="js/jsrender.min.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
-	 <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <script src="js/moment-with-locales.js"></script>
 </head>
 
 <body>
@@ -27,9 +32,9 @@
   <div class="container-fluid container-inside">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <div class="card-inside">
-          <div class="section-contents">
-            <div class="content-date">
+        <div class="card-inside" style="width: 1548px;">
+          <div id="calendar-content" class="section-contents mCustomScrollbar" data-mcs-theme="minimal-dark">
+            <div class="content-date" >
               <p>Mittwoch</p>
               <span>26</span>
               <p>October</p>
@@ -68,127 +73,9 @@
               </p>
             </div>
           </div>
-          <div class="right-menu">
-            <ul>
-              <li>
-                <a href="#">
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>»Rack« - Ein Strukturoptimierter Fahrradgepäckträger</h1>
-                </a>
-              </li>
-              <li class="content-selected">
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>Nebenjob als Nachhilfelehrer zu vergeben</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>Bauhaus-Universität Weimar begrüßt herzlich ihre neuen Studierenden</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>Bauhaus-Universität Weimar begrüßt herzlich ihre neuen Studierenden</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>Bauhaus-Universität Weimar begrüßt herzlich ihre neuen Studierenden</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>Bauhaus-Universität Weimar begrüßt herzlich ihre neuen Studierenden</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>Nebenjob als Nachhilfelehrer zu vergeben</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>Bauhaus-Universität Weimar begrüßt herzlich ihre neuen Studierenden</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>Bauhaus-Universität Weimar begrüßt herzlich ihre neuen Studierenden</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="content-date">
-                    <p>Mittwoch</p>
-                    <span>26</span>
-                    <p>October</p>
-                  </div>
-                  <h3>12.Oktober 2016</h3>
-                  <h1>Bauhaus-Universität Weimar begrüßt herzlich ihre neuen Studierenden</h1>
-                </a>
-              </li>
+          <div class="right-menu mCustomScrollbar" data-mcs-theme="minimal-dark">
+            <ul id='calendar-menu'>
+              
             </ul>
           </div>
         </div>
@@ -209,9 +96,118 @@
       </div>
     </div>
   </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+      
+  <script id="calendar-menu-template" type="text/x-jsrender">
+    <li id="calendar-menu-item-{{:#index+1}}">
+      <a href="#" onclick="calendarMenuClickHandler({{:#index+1}});">
+        <div class="arrow-right"></div>
+        <div class="content-date">
+          <p>{{:day_of_week}}</p>
+          <span>{{:day_of_month}}</span>
+          <p>{{:long_month}}</p>
+        </div>
+        <h3>{{:date_str}}</h3>
+        <h1>{{:title}}</h1>
+      </a>
+    </li>
+  </script>
 
+  <script id="calendar-content-template" type="text/x-jsrender">
+   <div class="content-date">
+      <p>{{:day_of_week}}</p>
+      <span>{{:day_of_month}}</span>
+      <p>{{:long_month}}</p>
+    </div>
+    <h1 class="calendar-title-inside">{{:title}}
+    </h1>
+    <p class="teaser-calendar">{{:subtitle}}</p>
+
+    <div class="content-info">
+      <ul>
+      {{:maininfo}}
+      </ul>
+    </div>
+    <div class="content-description">
+      {{:bodytext}}
+    </div> 
+  </script>
+
+
+  <script>
+    function calendarMenuClickHandler(id) {
+      //alert('clicked');
+      // remove content-selected class from all list elements
+      $('#calendar-menu li').removeClass('content-selected');
+      // set element as marked
+      $('#calendar-menu-item-' + id).addClass('content-selected');
+      // scroll to item position in menu
+      $(".right-menu").mCustomScrollbar("scrollTo", "#calendar-menu-item-" + id);
+      // fade out content
+      try {
+      $('.section-contents').removeClass('mCustomScrollbar')
+      $('.section-contents').mCustomScrollbar("destroy");
+      }
+      catch(err) {}
+      $('.section-contents').fadeOut(200, function() {
+        // replace content
+        var template = $.templates('#calendar-content-template');
+        var htmlOutput = template.render(window.calendar_data[id - 1]);
+        //console.log(htmlOutput);
+        $('#calendar-content').html(htmlOutput)
+        $('#calendar-content').mCustomScrollbar().fadeIn(200);
+      });
+    }
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+
+      for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+
+          if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+      }
+    };
+
+    $(".right-menu").mCustomScrollbar({
+        scrollButtons:{enable:true,scrollType:"stepped"},
+        keyboard:{scrollType:"stepped"},
+        mouseWheel:{scrollAmount:200,normalizeDelta:true},
+        snapAmount:200,
+        snapOffset:0
+    });
+    $.getJSON("./eventcal.json", function(json) {
+      window.calendar_data = json;
+      moment.locale('de');
+      var current_year = moment().format("YYYY");
+      $.each(window.calendar_data, function(k, v) {
+        var date = moment(v['day_of_month'] + " " + v['month'] + " " + current_year);
+        var day_of_week = date.format('dddd');
+        var long_month = date.format('MMMM');
+        var date_str = date.format('LL');
+        v['day_of_week'] = day_of_week;
+        v['long_month'] = long_month;
+        v['date_str'] = date_str;
+      });
+      //console.log(window.calendar_data);
+      var template = $.templates("#calendar-menu-template");
+      var htmlOutput = template.render(calendar_data);
+      $("#calendar-menu").html(htmlOutput);
+      var selected_id = getUrlParameter("id");
+      if(selected_id != undefined) {
+        calendarMenuClickHandler(selected_id);
+      }
+      else {
+        calendarMenuClickHandler(1);
+      }
+      /*json.forEach(function(journal_item) {
+        console.log(journal_item);
+      }); */
+    });
+  </script>
 </body>
-
 </html>

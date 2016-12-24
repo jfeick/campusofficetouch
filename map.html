@@ -12,10 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>  
+    <script src="js/jsrender.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
 </head>
 
 <body>
@@ -28,459 +32,24 @@
   <div class="container-fluid container-inside">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <div class="card-inside">
+        <div class="card-inside" style="width: 1548px;">
           <button class="locate-btn">
               <img src="img/icn-location.svg">
             </button>
           <div id="mapid" class="map-inside"></div>
-          <div class="right-menu menu-map">
-            <ul>
-
-            <!-- Campus General -->
-
-              <li>
-                <a class="bauhausatelier">
-                  <h3>Geschwister-Scholl-Straße 6a</h3>
-                  <h1>Bauhaus.Atelier | Info Shop Café</h1>
-                  <span class="bullet general"></span>
-                  <p><span class="english">Campus General </span><span class="german">Allgemein</span></p>
-                </a>
-              </li>
-              <li class="content-selected">
-                <a href="#">
+          <div class="right-menu menu-map mCustomScrollbar" data-mcs-theme="minimal-dark">
+            <ul id='map-menu'>
+              <li id="map-menu-item-1">
+                <a href="#" onclick="mapMenuClickHandler(1);">
                   <h3>Geschwister-Scholl-Straße 15</h3>
                   <h1>Campus Office</h1>
                   <span class="bullet general"></span>
                   <p><span class="english">Campus General </span><span class="german">Allgemein</span></p>
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  <h3>Geschwister-Scholl-Straße 8</h3>
-                  <h1>Hauptgebäude</h1>
-                  <span class="bullet general"></span>
-                  <p><span class="english">Campus General </span><span class="german">Allgemein</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Geschwister-Scholl-Straße 8</h3>
-                  <h1>Van-de-Velde-Bau</h1>
-                  <span class="bullet general"></span>
-                  <p><span class="english">Campus General </span><span class="german">Allgemein</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Am Horn 61</h3>
-                  <h1>Haus Am Horn</h1>
-                  <span class="bullet general"></span>
-                  <p><span class="english">Campus General </span><span class="german">Allgemein</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h1>Park an der Ilm</h1>
-                  <span class="bullet general"></span>
-                  <p><span class="english">Campus General </span><span class="german">Allgemein</span></p>
-                </a>
-              </li>
-
-              <!--Directorate -->
-
-              <li>
-                <a href="#">
-                  <h3>Geschwister-Scholl-Straße 8</h3>
-                  <h1>Büro des Rektors</h1>
-                  <span class="bullet directorate"></span>
-                  <p><span class="english">Directorate</span> <span class="german">Universitätsleitung </span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Belvederer Allee 6</h3>
-                  <h1>Büro des Kanzlers</h1>
-                  <span class="bullet directorate"></span>
-                  <p><span class="english">Directorate</span> <span class="german">Universitätsleitung </span></p>
-                </a>
-              </li>
-
-              <!--Faculties -->
-
-              <li>
-                <button>
-                  <h3>Geschwister-Scholl-Straße 8 </h3>
-                  <h1>Dekanat Fakultät Architektur und Urbanistik</h1>
-                  <span class="bullet faculties"></span>
-                  <p><span class="english">Faculties</span> <span class="german">Fakultäten</span></p>
-                </button>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Marienstraße 13E </h3>
-                  <h1>Dekanat Fakultät Bauingenieurwesen</h1>
-                  <span class="bullet faculties"></span>
-                  <p><span class="english">Faculties</span> <span class="german">Fakultäten</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Geschwister-Scholl-Straße 7 </h3>
-                  <h1>Dekanat Fakultät Gestaltung</h1>
-                  <span class="bullet faculties"></span>
-                  <p><span class="english">Faculties</span> <span class="german">Fakultäten</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Bauhausstraße 11</h3>
-                  <h1>Dekanat Fakultät Medien</h1>
-                  <span class="bullet faculties"></span>
-                  <p><span class="english">Faculties</span> <span class="german">Fakultäten</span></p>
-                </a>
-              </li>
-
-              <!--Administrative -->
-
-              <li>
-                <a href="#">
-                  <h3>Geschwister-Scholl-Straße 15</h3>
-                  <h1>Dezernat Studium und Lehre (DSL) Dezernat Internationale Beziehungen (DIB)</h1>
-                  <span class="bullet administrative"></span>
-                  <p><span class="english">Administrative</span> <span class="german">Dezernate</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Belvederer Allee 6 </h3>
-                  <h1>Dezernat Personal (DP)</h1>
-                  <span class="bullet administrative"></span>
-                  <p><span class="english">Administrative</span> <span class="german">Dezernate</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Coudraystraße 7</h3>
-                  <h1>Dezernat Finanzen (DF) Dezernat Forschung (DFo) </h1>
-                  <span class="bullet administrative"></span>
-                  <p><span class="english">Administrative</span> <span class="german">Dezernate</span></p>
-                </a>
-              </li>
-
-              <!--Facilities -->
-
-              <li>
-                <a href="#" id="alumniburo">
-                  <h3> Marienstraße 9</h3>
-                  <h1>Alumni Büro</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Bauhausstraße 7b</h3>
-                  <h1>Archiv der Moderne (AdM)</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Berkaer Straße 9</h3>
-                  <h1>Bauhaus Research School (BRS)</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Geschwister-Scholl-Straße 15</h3>
-                  <h1>Careers Service</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Amalienstraße 13</h3>
-                  <h1>Gleichstellungsbüro</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Helmholtzstraße 15</h3>
-                  <h1>Gründerwerkstatt neudeli</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Steubenstraße 6a</h3>
-                  <h1>SCC (Rechenzentrum)</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Coudraystraße 7 </h3>
-                  <h1>Servicezentrum Liegenschaften (SL)</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Belvederer Allee 6</h3>
-                  <h1>Servicezentrum Sicherheitsmanagement</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Coudraystraße 13A</h3>
-                  <h1>Sprachenzentrum (SZ)</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Steubenstraße 6a</h3>
-                  <h1>Universitätsbibliothek, Audimax (UB)</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Amalienstraße 13</h3>
-                  <h1>Universitätskommunikation (UK)</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <h3>Belvederer Allee 25a 29 Zentrum für Universitätsentwick</h3>
-                  <h1>Universitätssportzentrum »An der Falkenburg« (USZ)</h1>
-                  <span class="bullet facilities"></span>
-                  <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
-                </a>
-              </li>
+             
             </ul>
           </div>
-
- <script >
-
-  var mymap = L.map('mapid').setView([50.973999,11.329965], 17);
-
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
-    maxZoom: 20,
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-      '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    id: 'mapbox.streets'
-  }).addTo(mymap);
-
-  // Campus General //
-
-  L.marker([50.974897,11.328834]).addTo(mymap)
-    .bindPopup("<b>Campus Office</b><br />Geschwister-Scholl-Straße 15 ").openPopup();
-
-  L.circle([50.97404,11.32878], 3, {
-    color: '#f39100',
-    fillColor: '#f39100',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Bauhaus.Atelier | Info Shop Café</b> <br /> Geschwister-Scholl-Straße 6a");
-
-   document.querySelector("a.bauhausatelier").addEventListener("click", function() { mymap.setView([50.97404,11.32878], 19); }, true);
-
-
-  undefined
-
-
-   L.circle([50.974553,11.329105], 3, {
-    color: '#f39100',
-    fillColor: '#f39100',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Hauptgebäude</b> <br /> Geschwister-Scholl-Straße 8");
-
-    L.circle([50.974699,11.32830], 3, {
-    color: '#f39100',
-    fillColor: '#f39100',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Van-de-Velde-Bau</b> <br /> Geschwister-Scholl-Straße 7 ");
-
-    L.circle([50.97368,11.33929], 3, {
-    color: '#f39100',
-    fillColor: '#f39100',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Haus Am Horn</b> <br /> Am Horn 61 ");
-
-    L.circle([50.97436,11.334699], 3, {
-    color: '#f39100',
-    fillColor: '#f39100',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Park an der Ilm</b> ");
-
-
-  // Directorate //
-
-
-    L.circle([50.974597,11.329199], 3, {
-    color: '#e3000f',
-    fillColor: '#e3000f',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Büro des Rektors</b> <br /> Geschwister-Scholl-Straße 8 ");
-
-    L.circle([50.97249,11.33128], 3, {
-    color: '#e3000f',
-    fillColor: '#e3000f',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Büro des Kanzlers</b> <br /> Belvederer Allee 6");
-
-
-    // Faculties //
-
-
-    L.circle([50.974510,11.329001], 3, {
-    color: '#006b94',
-    fillColor: '#006b94',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Dekanat Fakultät Architektur und Urbanistik</b> <br />Geschwister-Scholl-Straße 8 ");
-
-    L.circle([50.975543,11.329197], 3, {
-    color: '#006b94',
-    fillColor: '#006b94',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Dekanat Fakultät Bauingenieurwesen</b> <br />Marienstraße 13E ");
-
-    L.circle([50.974489,11.32828], 3, {
-    color: '#006b94',
-    fillColor: '#006b94',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Dekanat Fakultät Gestaltung</b> <br />Geschwister-Scholl-Straße 7  ");
-
-    L.circle([50.97276,11.32916], 3, {
-    color: '##006b94',
-    fillColor: '#006b94',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Dekanat Fakultät Medien</b> <br />Bauhausstraße 11");
-
-    // Administrative //
-
-    L.circle([50.974897,11.328716], 3, {
-    color: '#009bb4',
-    fillColor: '#009bb4',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Dezernat Studium und Lehre (DSL) Dezernat Internationale Beziehungen (DIB) </b> <br />Geschwister-Scholl-Straße 15 (Campus Office) ");
-
-    L.circle([50.97240,11.33123], 3, {
-    color: '#009bb4',
-    fillColor: '#009bb4',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Dezernat Personal (DP)</b> <br />Belvederer Allee 6");
-
-    L.circle([50.980557,11.322479], 3, {
-    color: '#009bb4',
-    fillColor: '#009bb4',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Dezernat Finanzen (DF) Dezernat Forschung (DFo)</b> <br />Coudraystraße 7");
-
-    // Facilities //
-
-    L.circle([50.97562,11.32917], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Alumni Büro</b> <br />Marienstraße 9");
-
-    L.circle([50.9732,11.33002], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Archiv der Moderne (AdM) </b> <br />Bauhausstraße 7b ");
-
-    L.circle([50.97177,11.32985], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Bauhaus Research School (BRS)</b> <br />Berkaer Straße 9 ");
-
-    L.circle([50.974546,11.328716], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Careers Service (BRS)</b> <br />Geschwister-Scholl-Straße 15");
-
-    L.circle([50.974679,11.327223], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Gleichstellungsbüro</b> <br />Amalienstraße 13");
-
-    L.circle([50.967647,11.332991], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Gründerwerkstatt neudeli</b> <br />Helmholtzstraße 15 ");
-
-    L.circle([50.97705,11.32708], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>SCC (Rechenzentrum)</b> <br />Steubenstraße 6a");
-
-    L.circle([50.980513,11.322400], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Servicezentrum Liegenschaften (SL)</b> <br />Coudraystraße 7");
-
-    L.circle([50.97259,11.33129], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Servicezentrum Sicherheitsmanagement(SL)</b> <br />Belvederer Allee 6");
-
-    L.circle([50.98203,11.3221], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Sprachenzentrum (SZ) </b> <br />Coudraystraße 13A ");
-
-    L.circle([50.97705,11.32708], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Universitätsbibliothek, Audimax (UB) </b> <br />Steubenstraße 6");
-
-    L.circle([50.974679,11.327223], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Universitätskommunikation (UK)</b> <br />Amalienstraße 13 ");
-
-    L.circle([50.967402,11.336433], 3, {
-    color: '#94c11c',
-    fillColor: '#94c11c',
-    fillOpacity: 0.5
-  }).addTo(mymap).bindPopup("<b>Universitätssportzentrum »An der Falkenburg« (USZ)</b> <br />Belvederer Allee 25a 29 Zentrum für Universitätsentwick");
-
-
-  var popup = L.popup();
-
-   document.querySelector("button.locate-btn").addEventListener("click", function() { mymap.setView([50.973999,11.329965], 17); }, true);
-  undefined
-
-
-</script>
         </div>
       </div>
 
@@ -500,9 +69,115 @@
       </div>
     </div>
   </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 
+  <script id="map-menu-template" type="text/x-jsrender">
+    <li id="map-menu-item-{{:#index+2}}">
+      <a href="#" onclick="mapMenuClickHandler({{:#index+2}});">
+        <h3>{{:street_address}}</h3>
+        <h1>{{:name}}</h1>
+        <span class="bullet {{:class}}"></span>
+        {{if class == "general"}}
+        <p><span class="english">Campus General </span><span class="german">Allgemein</span></p>
+        {{else class == "directorate"}}
+        <p><span class="english">Directorate</span> <span class="german">Universitätsleitung </span></p>
+        {{else class == "faculties"}}
+        <p><span class="english">Faculties</span> <span class="german">Fakultäten</span></p>
+        {{else class == "administrative"}}
+        <p><span class="english">Administrative</span> <span class="german">Dezernate</span></p>
+        {{else class == "facilities"}}
+        <p><span class="english">Facilities</span> <span class="german">Weitere Einrichtungen</span></p>
+        {{else }}
+        {{/if}}
+      </a>
+    </li>
+  </script>
+
+  <script>
+    var mymap = L.map('mapid').setView([50.973999,11.329965], 17);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+      maxZoom: 20,
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      id: 'mapbox.streets'
+    }).addTo(mymap);
+
+    /*L.tileLayer('http://tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &amp; USGS'
+      }).addTo(mymap); */
+
+    // Campus General //
+
+    var campus_office = L.marker([50.974897,11.328834]).addTo(mymap)
+    .bindPopup("<b>Campus Office</b><br />Geschwister-Scholl-Straße 15 ").openPopup();
+
+    var circles = [];
+    
+    function mapMenuClickHandler(id) {
+      //alert('clicked');
+      // remove content-selected class from all list elements
+      $('#map-menu li').removeClass('content-selected');
+      // set element as marked
+      $('#map-menu-item-' + id).addClass('content-selected');
+      // scroll to item position in menu
+      $(".right-menu").mCustomScrollbar("scrollTo", "#map-menu-item-" + id);
+      if(id == 1) {
+        // Campus Office - Marker case
+        campus_office.openPopup();
+        mymap.setView([campus_office._latlng['lat'],campus_office._latlng['lng']], 18)
+      }
+      else {
+        var circle = circles[id - 2];
+        mymap.setView([circle._latlng['lat'],circle._latlng['lng']], 18); circle.openPopup(); 
+      }
+    }
+    var getUrlParameter = function getUrlParameter(sParam) {
+      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+
+      for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+
+          if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+      }
+    };
+
+    $(".right-menu").mCustomScrollbar({
+        scrollButtons:{enable:true,scrollType:"stepped"},
+        keyboard:{scrollType:"stepped"},
+        mouseWheel:{scrollAmount:140,normalizeDelta:true},
+        snapAmount:140,
+        snapOffset:0
+    });
+    $.getJSON("./locations.json", function(json) {
+      window.map_data = json;
+      var template = $.templates("#map-menu-template");
+      var htmlOutput = template.render(map_data);
+      //console.log(htmlOutput);
+      $("#map-menu").append(htmlOutput);
+      var selected_id = getUrlParameter("id");
+      if(selected_id != undefined) {
+        mapMenuClickHandler(selected_id);
+      }
+      else {
+        mapMenuClickHandler(1);
+      }
+      $.each(window.map_data, function(k, v) {
+        var circle = L.circle(v['coordinates'], 3, {
+          color: v['color'],
+          fillColor: v['fillColor'],
+          fillOpacity: 0.5
+        })
+        circle.addTo(mymap).bindPopup("<b>" + v['name'] + "</b> <br />" + v['street_address']);
+        circles.push(circle);
+        //var date = moment(v['day_of_month'] + " " + v['month'] + " " + current_year);
+      });
+    });
+  </script>
 </body>
-
 </html>
