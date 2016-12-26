@@ -12,10 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>  
+    <script src="js/jsrender.min.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
-	 <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <script src="js/moment-with-locales.js"></script>
 </head>
 
 <body>
@@ -27,123 +32,14 @@
   <div class="container-fluid container-inside">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <div class="card-inside">
-          <div class="section-contents">
-            <h1 class="piazza-title">Couch zu verschenken</h1>
-            <div class="section-img"><img src="img/sample-img/img-piazzabig.jpg">
-            </div>
-            <div class="content-info">
-              <p>
-                <b><span class="english">Author</span> <span class="german">Autor</span></b>
-                <br>
-                Eva Eichhorn<br>
-                <br>
-                <b><span class="english">Published</span> <span class="german">Veröffentlicht am</span></b>
-                <br>
-                15. November 2016, 16.58 Uhr
-                <br><br>
-                <b><span class="english">Expires </span><span class="german">Verfällt am</span></b>
-                <br>
-                29. November 2016, 16.58 Uhr
-              </p>
-            </div>
-            <div class="content-description">
-              <h2>Couch zu verschenken</h2>
-              <p>
-                Wer möchte meine große Eckcouch haben? - Ideal für die WG!
- 
-Ich verschenke die Couch gegen Selbstabholung.
- 
-Kontakt: evaeichhorn[at]gmx.de
-
-                <br>
-                <br>
-
-              </p>
-            </div>
+        <div class="card-inside" style="width: 1548px;">
+          <div id="piazza-content" class="section-contents mCustomScrollbar" data-mcs-theme="minimal-dark">
+            
           </div>
 
-          <div class="right-menu">
-            <ul>
-              <li>
-                <a href="#">
-                  <div class="img-piazza"><img src="img/sample-img/img-piazza1.jpg"></div>
-                  <h3>Leonie Fischer</h3>
-                  <h1>Wer verkauft mir sein altes iphone?</h1>
-                </a>
-              </li>
-              <li class="content-selected">
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="img-piazza"><img src="img/sample-img/img-piazza2.jpg"></div>
-                  <h3>Eva Eichhorn</h3>
-                  <h1>Couch zu verschenken</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="img-piazza"></div>
-                  <h3>Tillmann Ohm</h3>
-                  <h1>Zimmer frei zum 01.12. direkt am Campus 215€ all incl.</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="img-piazza"><img src="img/sample-img/img-piazza4.jpg"></div>
-                  <h3>Marcel Sparmann</h3>
-                  <h1>Kaffee-Kuchen-Action Art II / BREaKING POINTS</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="img-piazza"><img src="img/sample-img/img-piazza5.jpg"></div>
-                  <h3>Gründerwerkstatt neudeli</h3>
-                  <h1>Kostenlose Arbeitsräume im neudeli - bis 27.11. bewerben!</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="img-piazza"><img src="img/sample-img/img-piazza6.jpg"></div>
-                  <h3>Michaela Peisker</h3>
-                  <h1>Einblick: Spring Sanierung GmbH_25.11.</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="img-piazza"></div>
-                  <h3>Tillmann Ohm</h3>
-                  <h1>Zimmer frei zum 01.12. direkt am Campus 215€ all incl.</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="img-piazza"><img src="img/sample-img/img-piazza4.jpg"></div>
-                  <h3>Marcel Sparmann</h3>
-                  <h1>Kaffee-Kuchen-Action Art II / BREaKING POINTS</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="img-piazza"><img src="img/sample-img/img-piazza5.jpg"></div>
-                  <h3>Gründerwerkstatt neudeli</h3>
-                  <h1>Kostenlose Arbeitsräume im neudeli - bis 27.11. bewerben!</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="arrow-right"></div>
-                  <div class="img-piazza"><img src="img/sample-img/img-piazza6.jpg"></div>
-                  <h3>Michaela Peisker</h3>
-                  <h1>Einblick: Spring Sanierung GmbH_25.11.</h1>
-                </a>
-              </li>
+          <div class="right-menu" data-mcs-theme="minimal-dark">
+            <ul id="piazza-menu">
+      
             </ul>
           </div>
         </div>
@@ -164,8 +60,118 @@ Kontakt: evaeichhorn[at]gmx.de
       </div>
     </div>
   </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
+  <script id="piazza-content-template" type="text/x-jsrender">
+    <h1 class="piazza-title">{{:title}}</h1>
+    {{if image_urls.length}}
+    <div class="section-img"><img src="./piazza/full/{{for images tmpl='#piazza-image-template'/}}">
+    {{/if}}
+    </div>
+    <div class="content-info">
+      <p>
+        <b><span class="english">Author</span> <span class="german">Autor</span></b>
+        <br>
+        {{:author}}<br>
+        <br>
+        <b><span class="english">Published</span> <span class="german">Veröffentlicht am</span></b>
+        <br>
+        {{:date}}
+        <br>
+      </p>
+    </div>
+    <div class="content-description">
+      <h2>{{:title}}</h2>
+      <p>
+      {{:description}}
+      </p>
+    </div>
+  </script>
+    
+<script id="piazza-menu-template" type="text/x-jsrender">
+    <li id="piazza-menu-item-{{:#index+1}}">
+      <a href="#" onclick="piazzaMenuClickHandler({{:#index+1}});">
+        <div class="arrow-right"></div>
+        {{if image_urls.length}}
+        <div class="img-menu"><img src="./piazza/thumbs/small/{{for images tmpl='#piazza-image-template'/}}"></div>
+        {{else}}
+        <div class="img-piazza"></div>
+        {{/if}}
+        <h3>{{:author}}</h3>
+        <h1>{{:title}}</h1>
+      </a>
+    </li>
+  </script>
+  <script id="piazza-image-template" type="text/x-jsrender">{{>path}}</script>
+
+  <script>
+    function piazzaMenuClickHandler(id) {
+      // remove content-selected class from all list elements
+      $('#piazza-menu li').removeClass('content-selected');
+      // set element as marked
+      $('#piazza-menu-item-' + id).addClass('content-selected');
+      // scroll to item position in menu
+      $(".right-menu").mCustomScrollbar("scrollTo", "#piazza-menu-item-" + id);
+      // fade out content
+      try {
+      $('.section-contents').removeClass('mCustomScrollbar')
+      $('.section-contents').mCustomScrollbar("destroy");
+      }
+      catch(err) {}
+      $('.section-contents').fadeOut(200, function() {
+        // replace content
+        var template = $.templates('#piazza-content-template');
+        var htmlOutput = template.render(window.piazza_data[id - 1]);
+        console.log(htmlOutput);
+        $('#piazza-content').html(htmlOutput)
+        $('#piazza-content').mCustomScrollbar().fadeIn(200);
+      });
+    }
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+
+      for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+
+          if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+      }
+    };
+
+    $(".right-menu").mCustomScrollbar({
+        scrollButtons:{enable:true,scrollType:"stepped"},
+        keyboard:{scrollType:"stepped"},
+        mouseWheel:{scrollAmount:200,normalizeDelta:true},
+        snapAmount:200,
+        snapOffset:0
+    });
+    $.getJSON("./piazza.json", function(json) {
+      window.piazza_data = json;
+      // $.each(window.piazza_data, function(k, v) {
+      //   moment.locale('en');
+      //   var date = moment(v['date']);
+      //   console.log(date);
+      // });
+      var template = $.templates("#piazza-menu-template");
+      var htmlOutput = template.render(window.piazza_data);
+      $("#piazza-menu").html(htmlOutput);
+      var selected_id = getUrlParameter("id");
+      if(selected_id != undefined) {
+        piazzaMenuClickHandler(selected_id);
+      }
+      else {
+        piazzaMenuClickHandler(1);
+      }
+      /*json.forEach(function(journal_item) {
+        console.log(journal_item);
+      }); */
+    });
+  </script>
+
 
 </body>
 
