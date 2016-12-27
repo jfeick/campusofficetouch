@@ -12,11 +12,11 @@
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/font-awesome.css" rel="stylesheet" />
-    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery-1.11.0.js"></script>
     <link href="css/MetroJs.lt.css" rel="stylesheet" /> 
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script src="js/MetroJs.lt.js"></script>
-
+    <script src="js/jsrender.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
 </head>
@@ -30,35 +30,8 @@
     <div class="container-fluid">
     	<div class="row">
   			<div class="col-md-5">
-  				<div class="live-tile card" data-mode="carousel" data-direction="vertical" data-delay="2500">
-                    <div>
-                        <div class="tag journal">
-                            <span>Bauhaus.Journal </span>Online
-                        </div>
-                        <div class="img-card"><img src="img/sample-img/img-journalindex.png"></div>
-                        <div class="text-container">
-                            <h3>25. Oktober. 2016</h3>
-
-                            <h1>Auftakt der Ringvorlesung »Identität und Erbe« am 1. November 2016</h1>
-
-                            <p>Mit einer Ringvorlesungsreihe möchte sich das DFG-Graduiertenkolleg 2227 »Identität und Erbe«, das am 1. Oktober 2016 in Partnerschaft zwischen Bauhaus-Universität Weimar und TU Berlin gestartet ist, der Öffentlichkeit vorstellen. Die Veranstaltungen stehen allen Interessierten offen. Der Eintritt ist frei...</p>
-                            <a href="journal.html" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="tag journal">
-                            <span>Bauhaus.Journal </span>Online
-                        </div>
-                        <div class="img-card"><img src="img/sample-img/img-journalindex.png"></div>
-                        <div class="text-container">
-                            <h3>25. Oktober. 2016</h3>
-
-                            <h1>Auftakt der Ringvorlesung »Identität und Erbe« am 1. November 2016</h1>
-
-                            <p>Mit einer Ringvorlesungsreihe möchte sich das DFG-Graduiertenkolleg 2227 »Identität und Erbe«, das am 1. Oktober 2016 in Partnerschaft zwischen Bauhaus-Universität Weimar und TU Berlin gestartet ist, der Öffentlichkeit vorstellen. Die Veranstaltungen stehen allen Interessierten offen. Der Eintritt ist frei...</p>
-                            <a href="journal.html" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
-                        </div>
-                    </div>
+  				<div id="journal-tile" class="live-tile card" data-mode="carousel" data-direction="vertical" data-delay="10000">
+            
   				</div>
   			</div>
   			<div class="col-md-3">
@@ -231,12 +204,52 @@
 	</div>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 
+    <script id="journal-slide-template" type="text/x-jsrender">
+      <div>
+        <div class="tag journal">
+            <span>Bauhaus.Journal </span>Online
+        </div>
+        <div class="img-card"><img src="journal/thumbs/big/{{for images tmpl='#journal-image-template'/}}"></div>
+        <div class="text-container">
+            <h3>{{:date}}</h3>
+            <h1>{{:title}}</h1>
+            <p>{{:teaser_text}}</p>
+            <a href="journal.html?id={{:id}}" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
+        </div>
+      </div>
+    </script>
+    <script id="journal-image-template" type="text/x-jsrender">{{>path}}</script>
     <!-- Activate live tiles -->
     <script type="text/javascript">
-        // apply regular slide universally unless .exclude class is applied 
-        // NOTE: The default options for each liveTile are being pulled from the 'data-' attributes
-        var a = $(".live-tile");
-        a.liveTile();
+      function Shuffle(o) {
+        for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+      };
+      if (!Array.prototype.group) {
+        Array.prototype.group = function (length) {
+          var a = this.slice(), r = [];
+          length = length || 1;
+          
+          while (a.length > 0) {
+            r.push(a.splice(0, length));
+          }
+          
+          return r;
+        };
+      }
+
+      $.getJSON("./journal.json", function(json) {
+        window.journal_data = json;
+        $.each(window.journal_data, function(k, v) {
+          v['id'] = k + 1;
+        });
+        Shuffle(window.journal_data);
+        var template = $.templates("#journal-slide-template");
+        var htmlOutput = template.render(json);
+        $("#journal-tile").html(htmlOutput).liveTile();
+      });
+
+
     </script>
 
   </body>
