@@ -121,7 +121,8 @@
 		</div>
 		 <div class="row">
   			<div class="col-md-4">
-  				<div class="card card-bottom">
+          <div id="piazza-tile" class="live-tile card" data-mode="carousel" data-direction="horizontal" data-delay="6500">
+  				<!-- <div class="card card-bottom"> -->
   					<div class="tag piazza">
   						<span> PINNWAND</span> PIAZZA
   					</div>
@@ -204,6 +205,29 @@
 	</div>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 
+    <script id="piazza-slide-template" type="text/x-jsrender">
+     <div>
+      <div class="tag piazza">
+        <span> PINNWAND</span> PIAZZA
+      </div>
+      <div class="text-container">
+        <ul class="piazza-row">
+           {{for pair tmpl='#piazza-slide-item-template'/}}
+        </ul>
+      </div>
+     </div>
+    </script>
+    <script id="piazza-slide-item-template" type="text/x-jsrender">
+          <li>
+            <div class="piazzaimg">{{if image_urls.length }}<img src="piazza/thumbs/small/{{for images tmpl='#piazza-image-template'/}}">{{/if}}</div>
+            <h3>{{:german_date}} um {{:time}}</h3>
+            <h1>{{:author}}: {{:title}}
+            </h1>
+          <a href="piazza.html?id={{:id}}" class="more"><span class="english">More...</span><span class="german">Mehr...</span></a>
+          </li>
+    </script>
+    <script id="piazza-image-template" type="text/x-jsrender">{{>path}}</script>
+
     <script id="journal-slide-template" type="text/x-jsrender">
       <div>
         <div class="tag journal">
@@ -225,18 +249,7 @@
         for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
         return o;
       };
-      if (!Array.prototype.group) {
-        Array.prototype.group = function (length) {
-          var a = this.slice(), r = [];
-          length = length || 1;
-          
-          while (a.length > 0) {
-            r.push(a.splice(0, length));
-          }
-          
-          return r;
-        };
-      }
+      
 
       $.getJSON("./journal.json", function(json) {
         window.journal_data = json;
@@ -249,6 +262,30 @@
         $("#journal-tile").html(htmlOutput).liveTile();
       });
 
+      $.getJSON("./piazza.json", function(json) {
+        window.piazza_data = json;
+        
+        $.each(window.piazza_data, function(k, v) {
+          v['id'] = k + 1;
+        });
+        //console.log(window.piazza_data);
+        if (!Array.prototype.pair) {
+          Array.prototype.pair = function () {
+            var a = this.slice(), r = [];
+            while (a.length > 0) {
+              r.push({"pair": a.splice(0, 2)});
+            }
+            return r;
+          };
+        }
+        Shuffle(window.journal_data);
+        window.piazza_data = window.piazza_data.pair();
+        //console.log(window.piazza_data);
+        //Shuffle(window.journal_data);
+        var template = $.templates("#piazza-slide-template");
+        var htmlOutput = template.render(window.piazza_data);
+        $("#piazza-tile").html(htmlOutput).liveTile();
+      });
 
     </script>
 
