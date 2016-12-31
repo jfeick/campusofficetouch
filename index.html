@@ -148,20 +148,8 @@
   				</div>
   			</div>
   			<div class="col-md-5">
-  				<div class="card card-bottom">
-  					<div class="tag showcase">
-  						<span>Experiment.Bauhaus </span>Showcase
-  					</div>
-  					<div class="img-card"><img src="img/sample-img/img-experimentindex.png"></div>
-  					<div class="text-container">
-  						<h1>Black Body Radiation</h1>
-
-  						<h3>Andrea Karle</h3>
-  						
-  						<p>„Black Body Radiation“ is a multimedia Performance with dance and projections, inspired by Max Planck’s experiments to blackbody radiation.
-                Blackbodies are not only presented objectively in terms of physics but are as well understood subjectively as a metaphor for a delimited space in which photons, atoms, the mind and the human body act and interact - with other words: dance.  </p>
-  						<a href="showcase.html" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
-  					</div>
+  				<div id="showcase-tile" class="live-tile card card-bottom" data-mode="carousel" data-direction="vertical" data-delay="9500">
+  					
   				</div>
   			</div>
   			<div class="col-md-3">
@@ -204,6 +192,23 @@
 		</div>
 	</div>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+
+    <script id="showcase-slide-template" type="text/x-jsrender">
+      <div>
+        <div class="tag showcase">
+          <span>Experiment.Bauhaus </span>Showcase
+        </div>
+        <div class="img-card">{{include images[0]}}<img src="showcase/thumbs/big/{{>path}}{{/include}}"></div>
+        <div class="text-container">
+          <h1>{{:title}}</h1>
+
+          <h3>{{:author}}</h3>
+          
+          <span id="showcase-teaser" class="textfade">{{:description}}</div>
+          <a href="showcase.html?id={{:id}}" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
+        </div>
+      </div>
+    </script>
 
     <script id="piazza-slide-template" type="text/x-jsrender">
      <div>
@@ -249,7 +254,16 @@
         for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
         return o;
       };
-      
+      function getRandomSubarray(arr, size) {
+        var shuffled = arr.slice(0), i = arr.length, temp, index;
+        while (i--) {
+            index = Math.floor((i + 1) * Math.random());
+            temp = shuffled[index];
+            shuffled[index] = shuffled[i];
+            shuffled[i] = temp;
+        }
+        return shuffled.slice(0, size);
+      }
 
       $.getJSON("./journal.json", function(json) {
         window.journal_data = json;
@@ -285,6 +299,18 @@
         var template = $.templates("#piazza-slide-template");
         var htmlOutput = template.render(window.piazza_data);
         $("#piazza-tile").html(htmlOutput).liveTile();
+      });
+
+      $.getJSON("./showcase.json", function(json) {
+        window.showcase_data = json;
+        $.each(window.showcase_data, function(k, v) {
+          v['id'] = k + 1;
+        });
+        window.showcase_data = getRandomSubarray(window.showcase_data, 5);
+        //console.log(window.showcase_data);
+        var template = $.templates('#showcase-slide-template');
+        var htmlOutput = template.render(window.showcase_data);
+        $("#showcase-tile").html(htmlOutput).liveTile();
       });
 
     </script>
