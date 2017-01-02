@@ -4,6 +4,20 @@
 
 }
 
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+img {
+  pointer-events: none;
+}
+
 body {
 	width: 100%;
 	background-color: #e8e8e8;
@@ -259,8 +273,15 @@ p {
 }
 
 .calendar-list {
+	color: #4A4A4A;
 	margin: 5px 0 5px 20px;
 	float: left;
+	display: block; /* or inline-block */
+  	text-overflow: ellipsis;
+  	word-wrap: break-word;
+  	overflow: hidden;
+  	max-height: 6.0em;
+  	line-height: 1.1em; 
 }
 
 /* Map */

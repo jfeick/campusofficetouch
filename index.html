@@ -19,6 +19,7 @@
     <script src="js/jsrender.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <script src="js/moment-with-locales.js"></script>
 </head>
 
   <body>
@@ -35,48 +36,9 @@
   				</div>
   			</div>
   			<div class="col-md-3">
-  				<div class="card">
-  					<div class="tag calendar">
-  						<span class="english">Calendar</span>
-              <span class="german">Veranstaltungskalender</span>
-  					</div>
-  					<div class="text-container">
-  						<ul class="calendar-row">
-  							<li class="calendar-event">
-  								<div class="calendar-title">
-  									<div class="date-calendar">
-  										<p class="weekday">Thu</p>
-  										<p class="day">3</p>
-  										<p class="month">Nov</p>
-  									</div>
-  									<h1>Ph.D. Welcome Day and Intercultural Cross Dinner</h1>
-  								</div>
-  								<p>Info- und Netzwerkveranstaltung für Promovierende / Information and networking event for doctoral candidates</p>
-  								<ul class="calendar-list">
-  									<li>Datum: Thursday, 03.11.2016, 10.00 Uhr</li>
-  									<li>Ort: Bauhaus Research School, Berkaer Str. </li>
-  								</ul>
-                  <a href="calendar.html" class="more"><span class="english">More...</span><span class="german">Mehr...</span></a>
-  							</li>
-                
-  							<li class="calendar-event">
-                  				<div class="calendar-title">
-                    				<div class="date-calendar">
-                        				<p class="weekday">Thu</p>
-                        				<p class="day">03</p>
-                        				<p class="month">Nov</p>
-                    				</div>
-                    				<h1>Ringvorlesung „Medienanthropologie“ im Wintersemester 2016/2017</h1>
-                  				</div>
-                  				<ul class="calendar-list">
-                    				<li>Datum: Thursday, 03.11.2016, 19.00 Uhr</li>
-                    				<li>Ende: Thursday, 03.11.2016, 21.00 Uhr</li>
-                    				<li>Ort: IKKM Salon, Cranachstraße 47, Weimar</li>
-                  				</ul>
-                          <a href="calendar.html" class="more"><span class="english">More...</span><span class="german">Mehr...</span></a>
-                			</li>
-  						</ul>
-  					</div>
+  				<div id="calendar-tile" class="card live-tile" data-mode="carousel" data-direction="horizontal" data-delay="7500">
+  					
+
   					
   				</div>
   			</div>
@@ -165,7 +127,9 @@
             -->
   					<div class="text-container-social">
   						<h2>@bauhaus.botschafter</h2>
-  						<p>Vortrag: Zur Kasse bitte! Die Künstlersozialkasse Die Künstlersozialversicherung...</p>
+  						<p>Kennt ihr schon die Veranstaltungen und Trainings des Career Service, die im Januar und Februar auf euch warten?<br>
+
+Überzeugen im Vorstellungsgespräch</p>
   					</div>
   				</div>
   				<div class="card-social">
@@ -175,7 +139,7 @@
             <div class="socialimg"><img src="img/sample-img/img-twitterindex.png"></div>
   					<div class="text-container-social">
   						<h2>@bauhaus_uni</h2>
-  						<p>Bauhaus-Uni Weimar ‏@bauhaus_uni 27 oct. Gerade ist das Internationale #BauhausKolloquium gestartet...</p>
+  						<p>Wir wünschen friedliche und erholsame Feiertage. Alles Gute für ein phantastisches neues Jahr! #FroheWeihnachten #seasonsgreetings</p>
   					</div>
   				</div>
   				<div class="card-social card-bottom">
@@ -192,6 +156,37 @@
 		</div>
 	</div>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+
+    <script id="calendar-slide-template" type="text/x-jsrender">
+      <div>
+        <div class="tag calendar">
+          <span class="english">Calendar</span>
+          <span class="german">Veranstaltungskalender</span>
+        </div>
+        <div class="text-container">
+          <ul class="calendar-row">
+            {{for pair tmpl='#calendar-slide-item-template'/}}}}
+          </ul>
+        </div>
+      </div>
+    </script>
+
+    <script id="calendar-slide-item-template" type="text/x-jsrender">
+      <li class="calendar-event">
+        <div class="calendar-title">
+          <div class="date-calendar">
+            <p class="weekday">{{:day_of_week}}</p>
+            <p class="day">{{:day_of_month}}</p>
+            <p class="month">{{:month}}</p>
+          </div>
+          <h1>{{:title}}</h1>
+        </div>
+        <ul class="calendar-list">
+          {{:maininfo}}
+        </ul>
+        <a href="calendar.html?id={{:id}}" class="more"><span class="english">More...</span><span class="german">Mehr...</span></a>
+      </li>
+    </script>
 
     <script id="showcase-slide-template" type="text/x-jsrender">
       <div>
@@ -311,6 +306,35 @@
         var template = $.templates('#showcase-slide-template');
         var htmlOutput = template.render(window.showcase_data);
         $("#showcase-tile").html(htmlOutput).liveTile();
+      });
+
+      $.getJSON("./eventcal.json", function(json) {
+        window.calendar_data = json;
+        
+        moment.locale('de');
+        var current_year = moment().format("YYYY");
+        $.each(window.calendar_data, function(k, v) {
+          v['id'] = k + 1;
+          var date = moment(v['day_of_month'] + " " + v['month'] + " " + current_year);
+          var day_of_week = date.format('ddd');
+          v['day_of_week'] = day_of_week;
+        });
+        //console.log(window.piazza_data);
+        if (!Array.prototype.pair) {
+          Array.prototype.pair = function () {
+            var a = this.slice(), r = [];
+            while (a.length > 0) {
+              r.push({"pair": a.splice(0, 2)});
+            }
+            return r;
+          };
+        }
+        window.calendar_data = window.calendar_data.pair();
+        //console.log(window.piazza_data);
+        //Shuffle(window.journal_data);
+        var template = $.templates("#calendar-slide-template");
+        var htmlOutput = template.render(window.calendar_data);
+        $("#calendar-tile").html(htmlOutput).liveTile();
       });
 
     </script>

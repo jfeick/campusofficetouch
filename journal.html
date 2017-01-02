@@ -103,7 +103,7 @@
         var htmlOutput = template.render(window.journal_data[id - 1]);
         //console.log(htmlOutput);
         $('#journal-content').html(htmlOutput)
-        $('#journal-content').mCustomScrollbar().fadeIn(200);
+        $('#journal-content').mCustomScrollbar({documentTouchScroll:true}).fadeIn(200);
       });
     }
 
@@ -127,7 +127,8 @@
         keyboard:{scrollType:"stepped"},
         mouseWheel:{scrollAmount:200,normalizeDelta:true},
         snapAmount:200,
-        snapOffset:0
+        snapOffset:0,
+        documentTouchScroll: true
     });
     $.getJSON("./journal.json", function(json) {
       window.journal_data = json;
