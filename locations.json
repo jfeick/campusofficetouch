@@ -1,0 +1,218 @@
+[
+{
+  "street_address": "Geschwister-Scholl-Straße 6a",
+  "name": "Bauhaus.Atelier | Info Shop Café",
+  "class": "general",
+  "coordinates": [50.97404,11.32878],
+    "color": "#f39100",
+    "fillColor": "#f39100"
+},
+{
+  "street_address": "Geschwister-Scholl-Straße 8",
+  "name": "Hauptgebäude",
+  "class": "general",
+  "coordinates": [50.974553,11.329105],
+    "color": "#f39100",
+    "fillColor": "#f39100"
+},
+{
+  "street_address": "Geschwister-Scholl-Straße 8",
+  "name": "Van-de-Velde-Bau",
+  "class": "general",
+  "coordinates": [50.974699,11.32830],
+    "color": "#f39100",
+    "fillColor": "#f39100"
+},
+{
+  "street_address": "Am Horn 61",
+  "name": "Haus Am Horn",
+  "class": "general",
+  "coordinates": [50.97368,11.33929],
+    "color": "#f39100",
+    "fillColor": "#f39100"
+},
+{
+  "name": "Park an der Ilm",
+  "class": "general",
+  "coordinates": [50.97436,11.334699],
+    "color": "#f39100",
+    "fillColor": "#f39100"
+},
+{
+  "street_address": "Geschwister-Scholl-Straße 8",
+  "name": "Büro des Rektors",
+  "class": "directorate",
+  "coordinates": [50.974597,11.329199],
+    "color": "#e3000f",
+    "fillColor": "#e3000f"
+},
+{
+  "street_address": "Belvederer Allee 6",
+  "name": "Büro des Kanzlers",
+  "class": "directorate",
+  "coordinates": [50.97249,11.33128],
+    "color": "#e3000f",
+    "fillColor": "#e3000f"
+},
+{
+  "street_address": "Geschwister-Scholl-Straße 8 ",
+  "name": "Dekanat Fakultät Architektur und Urbanistik",
+  "class": "faculties",
+  "coordinates": [50.974510,11.329001],
+    "color": "#006b94",
+    "fillColor": "#006b94"
+},
+{
+  "street_address": "Marienstraße 13E ",
+  "name": "Dekanat Fakultät Bauingenieurwesen",
+  "class": "faculties",
+  "coordinates": [50.975543,11.329197],
+    "color": "#006b94",
+    "fillColor": "#006b94"
+},
+{
+  "street_address": "Geschwister-Scholl-Straße 7 ",
+  "name": "Dekanat Fakultät Gestaltung",
+  "class": "faculties",
+  "coordinates": [50.974489,11.32828],
+    "color": "#006b94",
+    "fillColor": "#006b94"
+},
+{
+  "street_address": "Bauhausstraße 11",
+  "name": "Dekanat Fakultät Medien",
+  "class": "faculties",
+  "coordinates": [50.97276,11.32916],
+    "color": "##006b94",
+    "fillColor": "#006b94"
+},
+{
+  "street_address": "Geschwister-Scholl-Straße 15",
+  "name": "Dezernat Studium und Lehre (DSL) Dezernat Internationale Beziehungen (DIB)",
+  "class": "administrative",
+
+  "coordinates": [50.974897,11.328716],
+    "color": "#009bb4",
+    "fillColor": "#009bb4"
+},
+{
+  "street_address": "Belvederer Allee 6 ",
+  "name": "Dezernat Personal (DP)",
+  "class": "administrative",
+  "coordinates": [50.97240,11.33123],
+    "color": "#009bb4",
+    "fillColor": "#009bb4"
+},
+{
+  "street_address": "Coudraystraße 7",
+  "name": "Dezernat Finanzen (DF) Dezernat Forschung (DFo) ",
+  "class": "administrative",
+  "coordinates": [50.980557,11.322479],
+    "color": "#009bb4",
+    "fillColor": "#009bb4"
+},
+{
+  "street_address": " Marienstraße 9",
+  "name": "Alumni Büro",
+  "class": "facilities",
+  "coordinates": [50.97562,11.32917],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Bauhausstraße 7b",
+  "name": "Archiv der Moderne (AdM)",
+  "class": "facilities",
+  "coordinates": [50.9732,11.33002],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Berkaer Straße 9",
+  "name": "Bauhaus Research School (BRS)",
+  "class": "facilities",
+  "coordinates": [50.97177,11.32985],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Geschwister-Scholl-Straße 15",
+  "name": "Careers Service",
+  "class": "facilities",
+  "coordinates": [50.974546,11.328716],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Amalienstraße 13",
+  "name": "Gleichstellungsbüro",
+  "class": "facilities",
+  "coordinates": [50.974679,11.327223],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Helmholtzstraße 15",
+  "name": "Gründerwerkstatt neudeli",
+  "class": "facilities",
+  "coordinates": [50.967647,11.332991],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Steubenstraße 6a",
+  "name": "SCC (Rechenzentrum)",
+  "class": "facilities",
+  "coordinates": [50.97705,11.32708],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Coudraystraße 7 ",
+  "name": "Servicezentrum Liegenschaften (SL)",
+  "class": "facilities",
+  "coordinates": [50.980513,11.322400],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Belvederer Allee 6",
+  "name": "Servicezentrum Sicherheitsmanagement",
+  "class": "facilities",
+  "coordinates": [50.97259,11.33129],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Coudraystraße 13A",
+  "name": "Sprachenzentrum (SZ)",
+  "class": "facilities",
+  "coordinates": [50.98203,11.3221],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Steubenstraße 6a",
+  "name": "Universitätsbibliothek, Audimax (UB)",
+  "class": "facilities",
+  "coordinates": [50.97705,11.32708],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Amalienstraße 13",
+  "name": "Universitätskommunikation (UK)",
+  "class": "facilities",
+  "coordinates": [50.974679,11.327223],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+},
+{
+  "street_address": "Belvederer Allee 25a 29 Zentrum für Universitätsentwick",
+  "name": "Universitätssportzentrum »An der Falkenburg« (USZ)",
+  "class": "facilities",
+  "coordinates": [50.967402,11.336433],
+    "color": "#94c11c",
+    "fillColor": "#94c11c"
+}
+]
