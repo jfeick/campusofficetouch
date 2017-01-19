@@ -195,8 +195,8 @@ p {
 
 
 .card a {
-	float: right;
-	text-decoration: underline;
+	/*float: right; */
+	/* text-decoration: underline; */
 }
 
 .seeall {
@@ -234,7 +234,9 @@ p {
 .calendar-row .calendar-event {
 	position: relative;
 	float: left;
-	padding-bottom: 30px;
+	padding-bottom: 10px;
+    height: 50%;
+
 }
 
 .calendar-row .calendar-event:nth-child(2){
@@ -253,11 +255,14 @@ p {
 }
 
 .date-calendar {
-	width: 45px;
+	width: 50px;
 	float: left;
 	font-weight: bold;
 	text-align: center;
 	margin: 12px 10px 5px 0px;
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(205, 205, 205);
 }
 
 .weekday, .month {
@@ -280,8 +285,22 @@ p {
   	text-overflow: ellipsis;
   	word-wrap: break-word;
   	overflow: hidden;
-  	max-height: 6.0em;
+  	max-height: 7.7em;
   	line-height: 1.1em; 
+}
+.calendar-list .textfade {
+  position: relative;
+  height: 7.7em;
+}
+.calendar-list .textfade:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.1em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
 }
 
 /* Map */
@@ -961,13 +980,15 @@ a:focus { outline: none }
   background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
 }
 
+a:hover {
+  text-decoration: none;
+}
 
+a {
+  text-decoration: none;
+}
 
-
-
-
-
-
-
-
+.event-categories-fix {
+display: inline;
+}
 

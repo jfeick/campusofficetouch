@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
 </head>
 
-<body>
+<body ondragstart="return false;" ondrop="return false;">
   <a href="index.html" class="logo logo-map"><img src="img/img-logo-home.svg"></a>
   </div>
   <ul class="language">
@@ -178,6 +178,8 @@
         //var date = moment(v['day_of_month'] + " " + v['month'] + " " + current_year);
       });
     });
+  $("button.locate-btn").bind("click", function() { mymap.setView([50.974897,11.328834], 18);
+    campus_office.openPopup(); });
   </script>
 </body>
 </html>

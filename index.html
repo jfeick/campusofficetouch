@@ -20,14 +20,17 @@
   <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
     <script src="js/moment-with-locales.js"></script>
+    <script src="js/hammer.min.js"></script>
 </head>
 
-  <body>
+<body ondragstart="return false;" ondrop="return false;">
   <a href="index.html" class="logo logo-home"><img src="img/img-logo-home.svg"></a>
+  <!-- 
   <ul class="language">
     <li><a class="lan-english"><span>ENG</span></a></li>
     <li><a class="lan-german"><span>DEU</span></a></li>
   </ul>
+  -->
     <div class="container-fluid">
     	<div class="row">
   			<div class="col-md-5">
@@ -155,6 +158,23 @@
   			</div>
 		</div>
 	</div>
+    <!-- 
+    <div class="row row-bottom">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="bottom-container">
+          <ul class="bottom-menu">
+            <li><a href="index.html"><p><span class=""><span class="bold">Main</span> <br>Screen</span></p></a></li>
+            <li><a href="journal.html" class="journal-menu"><p><span class="bold">Bauhaus.Journal</span> <br>Online</p></a></li>
+            <li><a href="showcase.html"><p><span class="bold">Experiment.Bauhaus</span> <br>Showcase</p></a></li>
+            <li><a href="calendar.html"><p><span class="english"><span class="bold">Calendar</span> <br>Upcoming Events</span> <span class="german"><span class="bold">Veranstaltungs </span><br>kalender</span></p></a></li>
+            <li><a href="piazza.html"><p><span class="bold">Pinnwand</span> <br>Piazza</p></a></li>
+            <li><a href="map.html"><p><span class="german"><span class="bold">Lagepläne </span><br> Dein Weg</span><span class="english"><span class="bold">Find</span> <br>Your Way</span></p></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    -->
+
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 
     <script id="calendar-slide-template" type="text/x-jsrender">
@@ -172,6 +192,7 @@
     </script>
 
     <script id="calendar-slide-item-template" type="text/x-jsrender">
+    <a href="calendar.html?id={{:id}}" style="width:50%">
       <li class="calendar-event">
         <div class="calendar-title">
           <div class="date-calendar">
@@ -181,14 +202,16 @@
           </div>
           <h1>{{:title}}</h1>
         </div>
-        <ul class="calendar-list">
+        <ul class="calendar-list textfade" >
           {{:maininfo}}
         </ul>
-        <a href="calendar.html?id={{:id}}" class="more"><span class="english">More...</span><span class="german">Mehr...</span></a>
+        <!-- <a href="calendar.html?id={{:id}}" class="more"><span class="english">More...</span><span class="german">Mehr...</span></a> -->
       </li>
+      </a>
     </script>
 
     <script id="showcase-slide-template" type="text/x-jsrender">
+        <a href="showcase.html?id={{:id}}">
       <div>
         <div class="tag showcase">
           <span>Experiment.Bauhaus </span>Showcase
@@ -196,13 +219,11 @@
         <div class="img-card">{{include images[0]}}<img src="showcase/thumbs/big/{{>path}}{{/include}}"></div>
         <div class="text-container">
           <h1>{{:title}}</h1>
-
           <h3>{{:author}}</h3>
-          
           <span id="showcase-teaser" class="textfade">{{:description}}</div>
-          <a href="showcase.html?id={{:id}}" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
         </div>
       </div>
+        </a>
     </script>
 
     <script id="piazza-slide-template" type="text/x-jsrender">
@@ -218,18 +239,20 @@
      </div>
     </script>
     <script id="piazza-slide-item-template" type="text/x-jsrender">
+    <a href="piazza.html?id={{:id}}">
           <li>
             <div class="piazzaimg">{{if image_urls.length }}<img src="piazza/thumbs/small/{{for images tmpl='#piazza-image-template'/}}">{{/if}}</div>
             <h3>{{:german_date}} um {{:time}}</h3>
             <h1>{{:author}}: {{:title}}
             </h1>
-          <a href="piazza.html?id={{:id}}" class="more"><span class="english">More...</span><span class="german">Mehr...</span></a>
           </li>
+        </a>
     </script>
     <script id="piazza-image-template" type="text/x-jsrender">{{>path}}</script>
 
     <script id="journal-slide-template" type="text/x-jsrender">
       <div>
+        <a href="journal.html?id={{:id}}">
         <div class="tag journal">
             <span>Bauhaus.Journal </span>Online
         </div>
@@ -238,8 +261,9 @@
             <h3>{{:date}}</h3>
             <h1>{{:title}}</h1>
             <p>{{:teaser_text}}</p>
-            <a href="journal.html?id={{:id}}" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a>
+            <!-- <a href="journal.html?id={{:id}}" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a> -->
         </div>
+        </a>
       </div>
     </script>
     <script id="journal-image-template" type="text/x-jsrender">{{>path}}</script>
@@ -314,8 +338,9 @@
         moment.locale('de');
         var current_year = moment().format("YYYY");
         $.each(window.calendar_data, function(k, v) {
+          moment.locale('de');
           v['id'] = k + 1;
-          var date = moment(v['day_of_month'] + " " + v['month'] + " " + current_year);
+          var date = moment(v['day_of_month'] + " " + v['month'] + " " + current_year, "DD MMM YYYY");
           var day_of_week = date.format('ddd');
           v['day_of_week'] = day_of_week;
         });
@@ -335,8 +360,69 @@
         var template = $.templates("#calendar-slide-template");
         var htmlOutput = template.render(window.calendar_data);
         $("#calendar-tile").html(htmlOutput).liveTile();
+        ret = $("li:has(ul.event-categories)");
+        ret.addClass("event-categories-fix");
+        console.log(ret);
       });
 
+      // fix calendar Art line break
+
+      // register Touch events
+
+      var myElement = document.getElementById('journal-tile');
+      var mc = new Hammer(myElement);
+      mc.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL });
+      mc.on("pandown panup", function(ev) {
+              //console.log(ev.type + " gesture detected.");
+              if(ev.type === "pandown") {
+                      console.log("prev");
+                      $("#journal-tile").liveTile("goto", "prev");
+              } else if(ev.type === "panup") {
+                      console.log("next");
+                      $("#journal-tile").liveTile("goto", "next");
+              }
+      });
+      myElement = document.getElementById('calendar-tile');
+      mc = new Hammer(myElement);
+      mc.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+      mc.on("panleft panright", function(ev) {
+              //console.log(ev.type + " gesture detected.");
+              if(ev.type === "panright") {
+                      console.log("prev");
+                      $("#calendar-tile").liveTile("goto", "prev");
+              } else if(ev.type === "panleft") {
+                      console.log("next");
+                      $("#calendar-tile").liveTile("goto", "next");
+              }
+      });
+
+      myElement = document.getElementById('piazza-tile');
+      mc = new Hammer(myElement);
+      mc.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+      mc.on("panleft panright", function(ev) {
+              //console.log(ev.type + " gesture detected.");
+              if(ev.type === "panright") {
+                      console.log("prev");
+                      $("#piazza-tile").liveTile("goto", "prev");
+              } else if(ev.type === "panleft") {
+                      console.log("next");
+                      $("#piazza-tile").liveTile("goto", "next");
+              }
+      });
+
+      myElement = document.getElementById('showcase-tile');
+      mc = new Hammer(myElement);
+      mc.get('pan').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+      mc.on("panup pandown", function(ev) {
+              //console.log(ev.type + " gesture detected.");
+              if(ev.type === "pandown") {
+                      console.log("prev");
+                      $("#showcase-tile").liveTile("goto", "prev");
+              } else if(ev.type === "panup") {
+                      console.log("next");
+                      $("#showcase-tile").liveTile("goto", "next");
+              }
+      });
     </script>
 
   </body>
