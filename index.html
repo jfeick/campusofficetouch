@@ -128,7 +128,7 @@
   					</div>
   					<div class="socialimg"><img src="img/sample-img/img-facebookindex.png"></div>
             -->
-  					<div class="text-container-social">
+  					<div class="text-container-social textfade">
   						<h2>@bauhaus.botschafter</h2>
   						<p>Kennt ihr schon die Veranstaltungen und Trainings des Career Service, die im Januar und Februar auf euch warten?<br>
 
@@ -140,7 +140,7 @@
   						<img src="img/icn-twitter.png">
   					</div>
             <div class="socialimg"><img src="img/sample-img/img-twitterindex.png"></div>
-  					<div class="text-container-social">
+  					<div class="text-container-social textfade">
   						<h2>@bauhaus_uni</h2>
   						<p>Wir wünschen friedliche und erholsame Feiertage. Alles Gute für ein phantastisches neues Jahr! #FroheWeihnachten #seasonsgreetings</p>
   					</div>
@@ -150,7 +150,7 @@
   						<img src="img/icn-instagram.png">
   					</div>
   					<div class="socialimg"><img src="img/sample-img/img-instagramindex.png"></div>
-  					<div class="text-container-social">
+  					<div class="text-container-social textfade">
   						<h2>@bauhaus_uni</h2>
   						<p>bauhaus_uniIn weniger als 2 Stunden startet das Internationale Bauhaus-Kolloquium an der...</p>
   					</div>
@@ -260,8 +260,10 @@
         <div class="text-container">
             <h3>{{:date}}</h3>
             <h1>{{:title}}</h1>
+            <div id="journal-teaser" class="textfade">
             <p>{{:teaser_text}}</p>
             <!-- <a href="journal.html?id={{:id}}" class="seeall"><span class="english">More...</span><span class="german">Mehr...</span></a> -->
+            </div>
         </div>
         </a>
       </div>
@@ -311,10 +313,9 @@
             return r;
           };
         }
-        Shuffle(window.journal_data);
+        //Shuffle(window.piazza_data);
         window.piazza_data = window.piazza_data.pair();
         //console.log(window.piazza_data);
-        //Shuffle(window.journal_data);
         var template = $.templates("#piazza-slide-template");
         var htmlOutput = template.render(window.piazza_data);
         $("#piazza-tile").html(htmlOutput).liveTile();
@@ -325,7 +326,7 @@
         $.each(window.showcase_data, function(k, v) {
           v['id'] = k + 1;
         });
-        window.showcase_data = getRandomSubarray(window.showcase_data, 5);
+        window.showcase_data = getRandomSubarray(window.showcase_data, 60);
         //console.log(window.showcase_data);
         var template = $.templates('#showcase-slide-template');
         var htmlOutput = template.render(window.showcase_data);
@@ -360,8 +361,12 @@
         var template = $.templates("#calendar-slide-template");
         var htmlOutput = template.render(window.calendar_data);
         $("#calendar-tile").html(htmlOutput).liveTile();
-        ret = $("li:has(ul.event-categories)");
-        ret.addClass("event-categories-fix");
+
+        //ret = $("li:has(ul.event-categories)");
+        //ret.addClass("event-categories-fix");
+
+        // Restructure list of event categories
+
         console.log(ret);
       });
 
