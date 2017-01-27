@@ -339,7 +339,6 @@
         moment.locale('de');
         var current_year = moment().format("YYYY");
         $.each(window.calendar_data, function(k, v) {
-          moment.locale('de');
           v['id'] = k + 1;
           var date = moment(v['day_of_month'] + " " + v['month'] + " " + current_year, "DD MMM YYYY");
           var day_of_week = date.format('ddd');
