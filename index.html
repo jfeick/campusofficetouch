@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
+    <link href="css/animations.css" rel="stylesheet" />
     <link href="css/font-awesome.css" rel="stylesheet" />
     <script src="js/jquery-1.11.0.js"></script>
     <link href="css/MetroJs.lt.css" rel="stylesheet" /> 
@@ -31,8 +32,8 @@
     <li><a class="lan-german"><span>DEU</span></a></li>
   </ul>
   -->
-    <div class="container-fluid">
-    	<div class="row">
+    <div class="container-fluid m-scene" id="main">
+    	<div class="row scene_element scene_element--fadeindown">
   			<div class="col-md-5">
   				<div id="journal-tile" class="live-tile card" data-mode="carousel" data-direction="vertical" data-delay="10000">
             
@@ -84,7 +85,7 @@
 </script>
 
 		</div>
-		 <div class="row">
+		 <div class="row scene_element scene_element--fadeinup">
   			<div class="col-md-4">
           <div id="piazza-tile" class="live-tile card" data-mode="carousel" data-direction="horizontal" data-delay="6500">
   				<!-- <div class="card card-bottom"> -->
@@ -158,6 +159,7 @@
   			</div>
 		</div>
 	</div>
+  </div>
     <!-- 
     <div class="row row-bottom">
       <div class="col-md-10 col-md-offset-1">
@@ -366,7 +368,7 @@
 
         // Restructure list of event categories
 
-        console.log(ret);
+        //console.log(ret);
       });
 
       // fix calendar Art line break

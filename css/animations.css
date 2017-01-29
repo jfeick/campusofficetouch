@@ -1,0 +1,38 @@
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+.m-scene .scene_element {
+        animation-duration: 0.25s;
+        transition-timing-function: ease-in;
+        animation-fill-mode: both;
+}
+
+.m-scene .scene_element--fadeinup {
+        animation-name: fadeInUp;
+}
+
+.m-scene .scene_element--fadeindown {
+        animation-name: fadeInDown;
+}
