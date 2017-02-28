@@ -24,6 +24,7 @@
 
 
 .m-scene .scene_element {
+/*    background: #ff0000; */
         animation-duration: 0.25s;
         transition-timing-function: ease-in;
         animation-fill-mode: both;
@@ -35,4 +36,12 @@
 
 .m-scene .scene_element--fadeindown {
         animation-name: fadeInDown;
+}
+
+
+.m-scene.is-exiting .scene_element {
+    animation-duration: 0.25s;
+    transition-timing-function: ease-in; 
+        animation-fill-mode: both;
+	animation-direction: reverse;
 }
