@@ -65,6 +65,10 @@ p {
 
 /* General Styles */
 
+.tile-container {
+    position: relative;
+}
+
 .container-fluid{
 	padding-left: 60px;
 	padding-right: 60px;
@@ -219,7 +223,8 @@ p {
 .journal{
 	background-color: #009AB2;
 	left: 0;
-	bottom: 0;
+	/* bottom: 0; */
+    top: 0;
 }
 
 /* Calendar */
@@ -404,7 +409,7 @@ p {
 .showcase {
 	background-color: #e3000f;
 	left: 0;
-	bottom: 0;
+	top: 0;
 }
 
 /* Social */

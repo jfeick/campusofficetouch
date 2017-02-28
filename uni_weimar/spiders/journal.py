@@ -26,6 +26,7 @@ class JournalItem(scrapy.Item):
     images = scrapy.Field()
     teaser_text = scrapy.Field()
     article_body = scrapy.Field()
+    id = scrapy.Field()
     #image_full = scrapy.Field()
     #image_big = scrapy.Field()
     #image_small = scrapy.Field()
@@ -99,7 +100,7 @@ class JournalSpider(scrapy.Spider):
             item['image_height'] = image_height
             item['teaser_text'] = teaser_text
 
-            self.logger.info("Yielding item")
+            #self.logger.info("Yielding item")
 
             yield scrapy.Request(url, callback=self.parse_journal_item, meta={'item': item})
 

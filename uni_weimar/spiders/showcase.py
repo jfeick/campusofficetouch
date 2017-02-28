@@ -20,7 +20,8 @@ class ShowCaseItem(scrapy.Item):
     video = scrapy.Field()
     image_urls = scrapy.Field()
     author = scrapy.Field()
-    
+    id = scrapy.Field()
+
 class ShowCaseImage(scrapy.Item):
     src = scrapy.Field()
     width = scrapy.Field()
@@ -79,9 +80,9 @@ class ShowcaseSpider(scrapy.Spider):
         # we are selecting links from a svg namespace. selectors extract xlink:href attribute
         for element in links:
             href = element.xpath("@*[name()='xlink:href']")
-            self.logger.info('URL extracted: %s', href.extract()[0])
+            #self.logger.info('URL extracted: %s', href.extract()[0])
             url = response.urljoin(href.extract()[0])
-          
+
             yield scrapy.Request(url, callback=self.parse_showcase_item)
 
     def parse_showcase_item(self, response):
@@ -97,7 +98,7 @@ class ShowcaseSpider(scrapy.Spider):
 
         if len(title):
             title = title[0]
-            self.logger.info("Title: %s", title)
+            #self.logger.info("Title: %s", title)
             item['title'] = title
         else:
             return
@@ -141,7 +142,7 @@ class ShowcaseSpider(scrapy.Spider):
             # import ipdb; ipdb.set_trace()
             img = figure.css('img')
             img_src = img.xpath('@src').extract()[0]
-            self.logger.info("URL??? -> %s", img_src)
+            #self.logger.info("URL??? -> %s", img_src)
             img_height = img.xpath('@height').extract()[0]
             img_width = img.xpath('@width').extract()[0]
 
@@ -155,7 +156,7 @@ class ShowcaseSpider(scrapy.Spider):
 
         item['images'] = image_items
 
-        video_node = vitrine_node.css('#ty-buw-showcase-video')
+        video_node = vitrine_node.css('#tx-buw-showcase-video')
         if len(video_node):
             iframe = video_node.css('iframe')
             video_src = iframe.xpath('@src').extract()[0]

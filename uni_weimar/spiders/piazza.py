@@ -19,8 +19,11 @@ class PiazzaItem(scrapy.Item):
     description = scrapy.Field()
     images = scrapy.Field()
     image_urls = scrapy.Field()
-    
-    
+    german_date = scrapy.Field()
+    time = scrapy.Field()
+    id = scrapy.Field()
+
+
 class PiazzaImagesPipeline(ImagesPipeline):
     def convert_image(self, image, size=None):
         if image.format != 'RGB':
@@ -75,6 +78,8 @@ class PiazzaSpider(scrapy.Spider):
             date = item.xpath('pubDate/text()').extract()
             date = "".join(date)
             image_urls = item.xpath('enclosure/@url').extract()
+            if '' in image_urls:
+                image_urls.remove('')
             broken_url = "https://www.uni-weimar.de/"
             if broken_url in image_urls:
                 image_urls.remove(broken_url)
@@ -93,5 +98,5 @@ class PiazzaSpider(scrapy.Spider):
         #     href = elementkku.xpath("@*[name()='xlink:href']")
         #     self.logger.info('URL extracted: %s', href.extract()[0])
         #     url = response.urljoin(href.extract()[0])
-          
+
         #     yield scrapy.Request(url, callback=self.parse_showcase_item)

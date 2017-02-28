@@ -29,6 +29,11 @@ class CalendarItem(scrapy.Item):
     subtitle = scrapy.Field()
     maininfo = scrapy.Field()
     bodytext = scrapy.Field()
+    day_of_week = scrapy.Field()
+    year = scrapy.Field()
+    long_month = scrapy.Field()
+    long_weekday = scrapy.Field()
+    id = scrapy.Field()
 
 class CalendarSpider(scrapy.Spider):
     name = "eventcal"
@@ -47,7 +52,7 @@ class CalendarSpider(scrapy.Spider):
             text = list_item.css('.text01')
             title = text.css('h2').xpath('a/text()').extract()[0]
             href = text.css('h2').xpath('a/@href')
-            
+
             subtitle = text.css('.cal_subtitle').xpath('text()').extract()
             subtitle = "".join(subtitle)
 

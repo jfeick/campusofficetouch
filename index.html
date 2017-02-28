@@ -20,7 +20,6 @@
     <script src="js/jsrender.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
-    <script src="js/moment-with-locales.js"></script>
     <script src="js/hammer.min.js"></script>
 </head>
 
@@ -35,16 +34,24 @@
     <div class="container-fluid m-scene" id="main">
     	<div class="row scene_element scene_element--fadeindown">
   			<div class="col-md-5">
+              <div class="tile-container">
+                <div class="tag journal">
+                    <span>Bauhaus.Journal </span>Online
+                </div>
   				<div id="journal-tile" class="live-tile card" data-mode="carousel" data-direction="vertical" data-delay="10000">
             
   				</div>
+              </div>
   			</div>
   			<div class="col-md-3">
+                <div class="tile-container">
+                <div class="tag calendar">
+                  <span class="english">Calendar</span>
+                  <span class="german">Veranstaltungskalender</span>
+                </div>
   				<div id="calendar-tile" class="card live-tile" data-mode="carousel" data-direction="horizontal" data-delay="7500">
-  					
-
-  					
   				</div>
+                </div>
   			</div>
 
   			<div class="col-md-4">
@@ -79,19 +86,20 @@
 
   L.marker([50.974897,11.328834]).addTo(mymap)
 
-     document.querySelector("button.locate-btn").addEventListener("click", function() { mymap.setView([50.974897,11.328834], 16); }, true);
-  undefined
+     document.queryselector("button.locate-btn").addeventlistener("click", function() { mymap.setview([50.974897,11.328834], 16); }, true);
+  //undefined
 
 </script>
 
 		</div>
 		 <div class="row scene_element scene_element--fadeinup">
   			<div class="col-md-4">
+          <div class="tile-container">
+          <div class="tag piazza">
+            <span> PINNWAND</span> PIAZZA
+          </div>
           <div id="piazza-tile" class="live-tile card" data-mode="carousel" data-direction="horizontal" data-delay="6500">
   				<!-- <div class="card card-bottom"> -->
-  					<div class="tag piazza">
-  						<span> PINNWAND</span> PIAZZA
-  					</div>
   					<div class="text-container">
   						<ul class="piazza-row">
   							<li>
@@ -112,11 +120,17 @@
   						</ul>
   					</div>
   				</div>
+          </div>
   			</div>
   			<div class="col-md-5">
+            <div class="tile-container">
+                <div class="tag showcase">
+                  <span>Experiment.Bauhaus </span>Showcase
+                </div>
   				<div id="showcase-tile" class="live-tile card card-bottom" data-mode="carousel" data-direction="vertical" data-delay="9500">
   					
   				</div>
+            </div>
   			</div>
   			<div class="col-md-3">
   				<div class="card-social">
@@ -131,9 +145,7 @@
             -->
   					<div class="text-container-social textfade">
   						<h2>@bauhaus.botschafter</h2>
-  						<p>Kennt ihr schon die Veranstaltungen und Trainings des Career Service, die im Januar und Februar auf euch warten?<br>
-
-Überzeugen im Vorstellungsgespräch</p>
+						<p>Die Bauhaus-Universität Weimar unterstützt den Aufruf des Bürgerbündnis gegen Rechtsextremismus Weimar:</p>
   					</div>
   				</div>
   				<div class="card-social">
@@ -143,7 +155,7 @@
             <div class="socialimg"><img src="img/sample-img/img-twitterindex.png"></div>
   					<div class="text-container-social textfade">
   						<h2>@bauhaus_uni</h2>
-  						<p>Wir wünschen friedliche und erholsame Feiertage. Alles Gute für ein phantastisches neues Jahr! #FroheWeihnachten #seasonsgreetings</p>
+						<p>Intelligente #Bauwerke: Fakultät #Bauingenieurwesen der #BauhausUni erhält Förderung für ein #Sensorik-#Labor</p>
   					</div>
   				</div>
   				<div class="card-social card-bottom">
@@ -181,11 +193,7 @@
 
     <script id="calendar-slide-template" type="text/x-jsrender">
       <div>
-        <div class="tag calendar">
-          <span class="english">Calendar</span>
-          <span class="german">Veranstaltungskalender</span>
-        </div>
-        <div class="text-container">
+       <div class="text-container">
           <ul class="calendar-row">
             {{for pair tmpl='#calendar-slide-item-template'/}}}}
           </ul>
@@ -198,7 +206,7 @@
       <li class="calendar-event">
         <div class="calendar-title">
           <div class="date-calendar">
-            <p class="weekday">{{:day_of_week}}</p>
+            <p class="weekday">{{:weekday}}</p>
             <p class="day">{{:day_of_month}}</p>
             <p class="month">{{:month}}</p>
           </div>
@@ -215,9 +223,6 @@
     <script id="showcase-slide-template" type="text/x-jsrender">
         <a href="showcase.html?id={{:id}}">
       <div>
-        <div class="tag showcase">
-          <span>Experiment.Bauhaus </span>Showcase
-        </div>
         <div class="img-card">{{include images[0]}}<img src="showcase/thumbs/big/{{>path}}{{/include}}"></div>
         <div class="text-container">
           <h1>{{:title}}</h1>
@@ -230,9 +235,6 @@
 
     <script id="piazza-slide-template" type="text/x-jsrender">
      <div>
-      <div class="tag piazza">
-        <span> PINNWAND</span> PIAZZA
-      </div>
       <div class="text-container">
         <ul class="piazza-row">
            {{for pair tmpl='#piazza-slide-item-template'/}}
@@ -255,9 +257,6 @@
     <script id="journal-slide-template" type="text/x-jsrender">
       <div>
         <a href="journal.html?id={{:id}}">
-        <div class="tag journal">
-            <span>Bauhaus.Journal </span>Online
-        </div>
         <div class="img-card"><img src="journal/thumbs/big/{{for images tmpl='#journal-image-template'/}}"></div>
         <div class="text-container">
             <h3>{{:date}}</h3>
@@ -335,18 +334,9 @@
         $("#showcase-tile").html(htmlOutput).liveTile();
       });
 
-      $.getJSON("./eventcal.json", function(json) {
+      $.getJSON("./calendar.json", function(json) {
         window.calendar_data = json;
         
-        moment.locale('de');
-        var current_year = moment().format("YYYY");
-        $.each(window.calendar_data, function(k, v) {
-          v['id'] = k + 1;
-          var date = moment(v['day_of_month'] + " " + v['month'] + " " + current_year, "DD MMM YYYY");
-          var day_of_week = date.format('ddd');
-          v['day_of_week'] = day_of_week;
-        });
-        //console.log(window.piazza_data);
         if (!Array.prototype.pair) {
           Array.prototype.pair = function () {
             var a = this.slice(), r = [];

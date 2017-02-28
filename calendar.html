@@ -20,7 +20,6 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
-    <script src="js/moment-with-locales.js"></script>
 </head>
 
 <body ondragstart="return false;" ondrop="return false;">
@@ -36,48 +35,9 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="card-inside" style="width: 1548px;">
           <div id="calendar-content" class="section-contents mCustomScrollbar" data-mcs-theme="minimal-dark">
-            <div class="content-date" >
-              <p>Mittwoch</p>
-              <span>26</span>
-              <p>October</p>
-            </div>
-            <h1 class="calendar-title-inside">»Dust and Data«  13. Internationales Bauhaus-Kolloquium
-            </h1>
-            <p class="teaser-calendar">Informationsveranstaltung zu organisatorischen Fragen rund um die Master-Thesis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut luctus odio. Aliquam vitae eros at tortor commodo tempor. Sed sodales sapien pharetra cursus vulputate. Nunc in pretium sem. Morbi faucibus fringilla est bibendum placerat. Integer vitae fringilla velit, sit amet laoreet nisi.</p>
-
-            <div class="content-info">
-              <p>
-                <b>Datum</b> <br>Mittwoch, 26. Oktober 2016, 09.00 Uhr <br><br>
-                <b>Ende <br></b> Samstag, 29. Oktober 2016, 18.00 Uhr <br><br>
-                <b>Ort <br></b> Weimar, Audimax, Hauptgebäude, u.a.  <br><br>
-                <b>Bereich <br></b>Fakultät Architektur und Urbanistik  <br><br>
-                <b>Art <br></b> Konferenz/Symposium
-                /Tagung
-
-              </p>
-            </div>
-            <div class="content-description">
-              <p>
-                Unter dem Titel »Dust and Data« veranstaltet die Bauhaus-Universität Weimar vom 26. bis 29. Oktober 2016 das 13. Bauhaus-Kolloquium. Die Konferenz reflektiert sowohl die bald einhundertjährige Geschichte des Bauhauses an den ursprünglichen Wirkungsstätten Weimar, Dessau und Berlin als auch die Geschichte seiner internationalen Rezeption und Migration.
-
-              Weitere Informationen und Anmeldung: www.bauhaus-kolloquium.de
-
-              Teilnahme für Angehörige der Bauhaus-Universität Weimar kostenfrei. 
-
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-              </p>
-            </div>
           </div>
           <div class="right-menu mCustomScrollbar" data-mcs-theme="minimal-dark">
             <ul id='calendar-menu'>
-              
             </ul>
           </div>
         </div>
@@ -104,11 +64,11 @@
       <a href="#" onclick="calendarMenuClickHandler({{:#index+1}});">
         <div class="arrow-right"></div>
         <div class="content-date">
-          <p>{{:day_of_week}}</p>
+          <p>{{:long_weekday}}</p>
           <span>{{:day_of_month}}</span>
           <p>{{:long_month}}</p>
         </div>
-        <h3>{{:date_str}}</h3>
+        <h3>{{:day_of_month}}. {{:long_month}} {{:year}}</h3>
         <h1>{{:title}}</h1>
       </a>
     </li>
@@ -116,7 +76,7 @@
 
   <script id="calendar-content-template" type="text/x-jsrender">
    <div class="content-date">
-      <p>{{:day_of_week}}</p>
+      <p>{{:long_weekday}}</p>
       <span>{{:day_of_month}}</span>
       <p>{{:long_month}}</p>
     </div>
@@ -137,7 +97,6 @@
 
   <script>
     function calendarMenuClickHandler(id) {
-      //alert('clicked');
       // remove content-selected class from all list elements
       $('#calendar-menu li').removeClass('content-selected');
       // set element as marked
@@ -182,20 +141,8 @@
         snapAmount:200,
         snapOffset:0
     });
-    $.getJSON("./eventcal.json", function(json) {
+    $.getJSON("./calendar.json", function(json) {
       window.calendar_data = json;
-      moment.locale('de');
-      var current_year = moment().format("YYYY");
-      $.each(window.calendar_data, function(k, v) {
-        var date = moment(v['day_of_month'] + " " + v['month'] + " " + current_year, "DD MMM YYYY");
-        var day_of_week = date.format('dddd');
-        var long_month = date.format('MMMM');
-        var date_str = date.format('LL');
-        v['day_of_week'] = day_of_week;
-        v['long_month'] = long_month;
-        v['date_str'] = date_str;
-      });
-      //console.log(window.calendar_data);
       var template = $.templates("#calendar-menu-template");
       var htmlOutput = template.render(calendar_data);
       $("#calendar-menu").html(htmlOutput);
@@ -206,9 +153,6 @@
       else {
         calendarMenuClickHandler(1);
       }
-      /*json.forEach(function(journal_item) {
-        console.log(journal_item);
-      }); */
     });
   </script>
 </body>

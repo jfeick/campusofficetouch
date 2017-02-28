@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
     <script src="js/flickity.pkgd.min.js"></script>
     <link rel="stylesheet" href="css/flickity.css" media="screen"/>
+    <link rel="stylesheet" href="css/blueimp-gallery.min.css">
 </head>
 
 <body ondragstart="return false;" ondrop="return false;">
@@ -41,31 +42,6 @@
           <div id="showcase-content" class="section-contents mCustomScrollbar" data-mcs-theme="minimal-dark">
 
 
-             <h1 class="showcase-title">{{:title}}</h1>
-              <div class="pic-video">
-              <ul>
-                <li>
-                  <a href="#">
-                    <img src="img/icn-picture.svg">
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="icn-opacity">
-                    <img src="img/icn-video.svg">
-                  </a>
-                </li>
-              </ul>
-              </div>
-              <div class="row row-carouselco">
-                <div id="showcase-gallery" class="main-carousel">
-                  <div class="carousel-cell">
-                      <img src="img/sample-img/img-experimentbig1.jpg">
-                    </div>
-                    <div class="carousel-cell">
-                      <img src="img/sample-img/img-experimentbig2.jpg">
-                    </div>
-                  </div>
-                </div>
               
               <div class="content-info">
                 <h2>Projektinformation</h2>
@@ -91,43 +67,6 @@
                   <hr>
                   Links <br>
                   <span class="break">https://vimeo.com/user52530027</span>
-                </p>
-              </div>
-              <div class="content-description">
-                <h2>Project Description</h2>
-                <p>
-                  Degree work Media Art and Design (M.F.A.)
-                  Mark: 1.0 and Summa Cum Laude
-                  Nominated for the 'MediaArtPrice2016'; Bauhaus Universität - Weimar
-                  <br><br>
-                  <b>Description</b>
-                  <br><br>
-                  „Black Body Radiation“ is a multimedia Performance with dance and projections, inspired by Max Planck’s experiments to blackbody radiation.
-                  Blackbodies are not only presented objectively in terms of physics but are as well understood subjectively as a metaphor for a delimited space in which photons, atoms, the mind and the human body act and interact - with other words: dance. 
-                  Abstract animated visualizations and recorded footage are complemented by electronic music.
-                  With this hybrid language the production contributes to the interdisciplinary bridge between science and art.
-                  <br><br>
-                  <b>Credits</b>
-                  <br><br>
-                  Concept, project management, animation, editing, choreography, photography and stage design:
-                  Melisa Palacio Lopez / Claire Dorweiler
-                  <br><br>
-                  Sounddesign:
-                  Bert Liebold - noise canteen, noisecanteen.com
-                  <br><br>
-                  Videotechnique:
-                  Jakob Stolz - Das Konglomerat, daskonglomerat.tumblr.com
-                  <br><br>
-                  Camera Performance Documentation:
-                  Alexander Graeff, Jonas Eisenschmidt
-                  <br><br>
-                  Stage Lighting:
-                  David Leroy
-                  <br><br>
-                  email: black.body.radiation.info[at]gmail.com
-
-
-                  WURST WURST WURST
                 </p>
               </div>
           </div>
@@ -158,36 +97,44 @@
     
   
   <script id="showcase-content-template" type="text/x-jsrender">
-    <!-- <h1 class="journal-title">{{:title}}</h1>
-      <div class="section-img">
-        <img src="./journal/full/{{for images tmpl='#journal-image-template'/}}">
-      </div>
-      <h2>{{:teaser_text}}
-      </h2>
-      <p>
-        {{:article_body}}
-      </p> -->
-
     <h1 class="showcase-title">{{:title}}</h1>
       <div class="pic-video">
       <ul>
-        <li>
-          <a href="#">
+        <li >
+          <div id="image-btn">
             <img src="img/icn-picture.svg">
-          </a>
+          </div>
         </li>
-        <li>
-          <a href="#" class="icn-opacity">
+	{{if video}}
+        <li >
+          <div id="video-btn" class="icn-opacity">
             <img src="img/icn-video.svg">
-          </a>
+          </div>
         </li>
+	{{/if}}
       </ul>
       </div>
-      <div class="row row-carouselco">
-        <div id="showcase-carousel" class="main-carousel" data-flickity='{ "wrapAround": true }'>
-          {{for images tmpl='#showcase-item-template' /}}
-        </div>  
+      <!-- <div class="row row-carouselco"> -->
+      <div class="row" style="width:100%;height:420px;overflow:hidden;float:left;">
+	    <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel" style="width:100%; background: #fff; box-shadow: none;">
+		<div class="slides"></div>
+		<h3 class="title"></h3>
+		<a class="prev">‹</a>
+		
+		<a class="next">›</a>
+		<!-- <a class="play-pause"></a> -->
+		<ol class="indicator"></ol>
+	    </div>
+	    {{if video}}
+		{{include video }}
+		<div id="video" style="display: none;margin-left:20px;">
+				<iframe src="http:{{>src}}" width="680" height="400" frameborder="0"></iframe>
+		</div> 
+		{{/include}}
+	    {{/if}}
       </div>
+
+
       <div class="content-info">
         <h2>Projektinformation</h2>
         {{:information}}
@@ -197,13 +144,18 @@
         {{:description}}
       </div>
     </div>
+
+	    <div id="links" style="display: none;">
+
+              {{for images tmpl='#showcase-item-template' /}}
+	    </div>
   </script>
+    <script id="showcase-item-template" type="text/x-jsrender">
+      <a href="showcase/full/{{>path}}" title="">
+	<img src="showcase/full/{{>path}}" alt="">
+      </a>
+    </script>
   
-  <script id="showcase-item-template" type="text/x-jsrender">
-    <div class="carousel-cell">
-      <img src="showcase/full/{{>path}}">
-    </div>
-  </script>
 
   <script id="showcase-menu-template" type="text/x-jsrender">
     <li id="showcase-menu-item-{{:#index+1}}">
@@ -240,11 +192,56 @@
         var template = $.templates('#showcase-content-template');
         var htmlOutput = template.render(window.showcase_data[id - 1]);
         $('#showcase-content').html(htmlOutput);
-        //$('#showcase-carousel').flickity({ "wrapAround": true });
+        
+    /* BLUEIMP SCRIPT HERE */
+
+    /* ****************************
+
+    */
+    $.getScript('js/blueimp-gallery.min.js', function()
+    {
+	document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+	};
+       
+	blueimp.Gallery(
+	    document.getElementById('links').getElementsByTagName('a'),
+	    {
+		container: '#blueimp-gallery-carousel',
+		carousel: true
+	    }
+	);
+
+    });
+     
+    if ( $("#video-btn").length ){ 
+	$( "#video-btn" ).click(function() {
+            $('#blueimp-gallery-carousel').fadeOut(500, function() { 
+               $('#video').fadeIn(500, function() {});
+            });
+            $("#image-btn").addClass("icn-opacity");
+            $("#video-btn").removeClass("icn-opacity");
+        });
+	$( "#image-btn").click(function() {
+	    $('#video').fadeOut(500, function() {
+               $('#blueimp-gallery-carousel').fadeIn(500, function() {});
+            });
+            $("#image-btn").removeClass("icn-opacity");
+            $("#video-btn").addClass("icn-opacity");
+
+	});
+    }
+        
         $('#showcase-content').mCustomScrollbar().fadeTo(500, 1.0, function() {
           //$('#showcase-carousel').flickity();
           $('#showcase-carousel').flickity({ "wrapAround": true })
         })
+    
       });
     }
 
@@ -287,6 +284,7 @@
       /*json.forEach(function(journal_item) {
         console.log(journal_item);
       }); */
+
     });
     
   </script>
