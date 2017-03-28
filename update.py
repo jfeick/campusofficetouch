@@ -35,7 +35,8 @@ class UniCrawler:
         self.showcase_items.append(item)
 
     def crawl(self):
-        configure_logging({'LOG_FILE':'scrapy.log', 'LOG_LEVEL':'WARNING'})
+        #configure_logging({'LOG_FILE':'scrapy.log', 'LOG_LEVEL':'INFO'})
+        configure_logging({'LOG_LEVEL':'DEBUG'})
         runner = CrawlerRunner()
         calendar_crawler = runner.create_crawler(CalendarSpider)
         calendar_crawler.signals.connect(self.calendar_item_passed, signal=signals.item_scraped)
