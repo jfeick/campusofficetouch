@@ -3,6 +3,8 @@ import logging
 import re
 import json
 
+from urllib.parse import urljoin
+
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.utils.misc import md5sum
 from io import BytesIO
@@ -147,12 +149,13 @@ class ShowcaseSpider(scrapy.Spider):
             img_width = img.xpath('@width').extract()[0]
 
             image_item = ShowCaseImage()
-            image_item['src'] = img_src
+            #image_item['src'] = img_src
+            image_item['src'] = urljoin(response.url, img_src.strip())
             image_item['width'] = img_width
             image_item['height'] = img_height
             #image_item['image_urls'] = [img_src]
             image_items.append(image_item)
-            item['image_urls'].append(img_src)
+            item['image_urls'].append(urljoin(response.url, img_src.strip()))
 
         item['images'] = image_items
 

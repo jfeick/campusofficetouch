@@ -1,3 +1,4 @@
+import sys
 from scrapy import signals
 from twisted.internet import reactor, defer
 from scrapy.crawler import CrawlerRunner
@@ -34,7 +35,7 @@ class UniCrawler:
     def showcase_item_passed(self, item):
         self.showcase_items.append(item)
 
-    def crawl(self):
+    def crawl(self, sections=['calendar', 'journal', 'piazza', 'showcase']):
         #configure_logging({'LOG_FILE':'scrapy.log', 'LOG_LEVEL':'INFO'})
         configure_logging({'LOG_LEVEL':'DEBUG'})
         runner = CrawlerRunner()
@@ -47,10 +48,14 @@ class UniCrawler:
         showcase_crawler = runner.create_crawler(ShowcaseSpider)
         showcase_crawler.signals.connect(self.showcase_item_passed, signal=signals.item_scraped)
 
-        runner.crawl(calendar_crawler)
-        runner.crawl(journal_crawler)
-        runner.crawl(piazza_crawler)
-        runner.crawl(showcase_crawler)
+        if 'calendar' in sections:
+            runner.crawl(calendar_crawler)
+        if 'journal' in sections:
+            runner.crawl(journal_crawler)
+        if 'piazza' in sections:
+            runner.crawl(piazza_crawler)
+        if 'showcase' in sections:
+            runner.crawl(showcase_crawler)
 
         d = runner.join()
         d.addBoth(lambda _: reactor.stop())
@@ -134,7 +139,10 @@ class UniCrawler:
 #reactor.run()
 def main():
     unicrawler = UniCrawler()
-    unicrawler.crawl()
+    sections = ['journal', 'calendar', 'piazza', 'showcase']
+    if len(sys.argv) > 1:
+        sections = sys.argv[1:]
+    unicrawler.crawl(sections)
     unicrawler.sort_calendar_items()
     unicrawler.sort_piazza_items()
     unicrawler.index_items()
